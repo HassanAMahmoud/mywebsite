@@ -1,16 +1,3 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import PubCard from "../../components/PubCard.astro";
-import PubNav from "../../components/PubNav.astro";
-import { profile } from "../../data/profile";
-import { proceedings } from "../../data/publications";
+return Astro.redirect("/publications#proceedings");
 ---
-
-<BaseLayout
-  title={`Conference proceedings - ${profile.name}`}
-  description="Conference proceedings publications."
->
-  <h1>Conference proceedings</h1>
-  <PubNav />
-  {proceedings.map((pub) => <PubCard pub={pub} />)}
-</BaseLayout>

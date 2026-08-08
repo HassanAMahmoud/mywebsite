@@ -197,29 +197,67 @@ li {
   font-weight: 700;
 }
 
-.pub-nav ul {
-  list-style: none;
-  margin: 0 0 1.5rem;
-  padding: 0;
+.pub-stats {
   display: grid;
-  gap: 0.45rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  border: 1px solid var(--border);
+  padding: 1.25rem 0.75rem;
+  margin: 0 0 1.25rem;
 }
 
-.pub-nav a {
+.pub-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  color: var(--muted);
+  padding: 0.35rem;
+}
+
+.pub-stat:hover {
   color: var(--link);
-  font-weight: 600;
   text-decoration: none;
 }
 
-.pub-nav a:hover,
-.pub-nav a[aria-current="page"] {
-  text-decoration: underline;
-  color: var(--link-hover);
+.pub-stat-count {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: #b0b6bb;
 }
 
-.pub-hint {
+.pub-stat:hover .pub-stat-count {
+  color: var(--link);
+}
+
+.pub-stat-label {
+  margin-top: 0.35rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.pub-updated {
+  text-align: center;
   color: var(--muted);
   font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+.pub-section {
+  margin-top: 2.25rem;
+  scroll-margin-top: 4.5rem;
+}
+
+.pub-section h2 {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
 }
 
 .content h2 {
@@ -428,5 +466,9 @@ li {
 
   .cover {
     max-height: 180px;
+  }
+
+  .pub-stats {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

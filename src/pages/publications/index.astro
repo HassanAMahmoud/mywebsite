@@ -1,7 +1,40 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import PubNav from "../../components/PubNav.astro";
+import PubCard from "../../components/PubCard.astro";
 import { profile } from "../../data/profile";
+import {
+  journalPublications,
+  proceedings,
+  patents,
+  talksAndPosters,
+} from "../../data/publications";
+
+const categories = [
+  {
+    id: "journals",
+    count: journalPublications.length,
+    label: "Journal articles",
+    items: journalPublications,
+  },
+  {
+    id: "proceedings",
+    count: proceedings.length,
+    label: "Conference proceedings",
+    items: proceedings,
+  },
+  {
+    id: "talks",
+    count: talksAndPosters.length,
+    label: "Talks and posters",
+    items: talksAndPosters,
+  },
+  {
+    id: "patents",
+    count: patents.length,
+    label: "Patents",
+    items: patents,
+  },
+];
 ---
 
 <BaseLayout
@@ -9,10 +42,36 @@ import { profile } from "../../data/profile";
   description="Journal papers, conference proceedings, patents, talks and posters."
 >
   <h1>Publications</h1>
-  <p>Select a category:</p>
-  <PubNav />
-  <p class="pub-hint">
-    Each category opens on its own page with paper thumbnails (placeholders until
-    figures are added).
+
+  <div class="pub-stats" aria-label="Publication counts">
+    {
+      categories.map((category) => (
+        <a class="pub-stat" href={`#${category.id}`}>
+          <span class="pub-stat-count">{category.count}</span>
+          <span class="pub-stat-label">{category.label}</span>
+        </a>
+      ))
+    }
+  </div>
+
+  <p class="pub-updated">
+    For the latest version, please check my
+    {" "}
+    <a href={profile.links.scholar} target="_blank" rel="noopener noreferrer">
+      Google Scholar profile
+    </a>.
   </p>
+
+  {
+    categories.map((category) => (
+      <section class="pub-section" id={category.id}>
+        <h2>
+          {category.count} {category.label}
+        </h2>
+        {category.items.map((pub) => (
+          <PubCard pub={pub} />
+        ))}
+      </section>
+    ))
+  }
 </BaseLayout>

@@ -1,16 +1,3 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import PubCard from "../../components/PubCard.astro";
-import PubNav from "../../components/PubNav.astro";
-import { profile } from "../../data/profile";
-import { patents } from "../../data/publications";
+return Astro.redirect("/publications#patents");
 ---
-
-<BaseLayout
-  title={`Patents - ${profile.name}`}
-  description="Patent applications."
->
-  <h1>Patents</h1>
-  <PubNav />
-  {patents.map((pub) => <PubCard pub={pub} />)}
-</BaseLayout>
