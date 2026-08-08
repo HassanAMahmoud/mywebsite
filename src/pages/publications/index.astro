@@ -41,15 +41,21 @@ const categories = [
   title={`Publications - ${profile.name}`}
   description="Journal papers, conference proceedings, patents, talks and posters."
 >
-  <h1>Publications</h1>
-
-  <div class="pub-stats" aria-label="Publication counts">
+  <div class="pub-stats" role="tablist" aria-label="Publication categories">
     {
-      categories.map((category) => (
-        <a class="pub-stat" href={`#${category.id}`}>
+      categories.map((category, index) => (
+        <button
+          class:list={["pub-stat", { "is-active": index === 0 }]}
+          type="button"
+          role="tab"
+          id={`tab-${category.id}`}
+          aria-selected={index === 0 ? "true" : "false"}
+          aria-controls={`panel-${category.id}`}
+          data-category={category.id}
+        >
           <span class="pub-stat-count">{category.count}</span>
           <span class="pub-stat-label">{category.label}</span>
-        </a>
+        </button>
       ))
     }
   </div>
@@ -63,8 +69,15 @@ const categories = [
   </p>
 
   {
-    categories.map((category) => (
-      <section class="pub-section" id={category.id}>
+    categories.map((category, index) => (
+      <section
+        class:list={["pub-section", { "is-active": index === 0 }]}
+        id={`panel-${category.id}`}
+        role="tabpanel"
+        aria-labelledby={`tab-${category.id}`}
+        hidden={index !== 0}
+        data-panel={category.id}
+      >
         <h2>
           {category.count} {category.label}
         </h2>
@@ -74,4 +87,37 @@ const categories = [
       </section>
     ))
   }
+
+  <script>
+    const tabs = document.querySelectorAll(".pub-stat[data-category]");
+    const panels = document.querySelectorAll(".pub-section[data-panel]");
+
+    function showCategory(id) {
+      tabs.forEach((tab) => {
+        const active = tab.dataset.category === id;
+        tab.classList.toggle("is-active", active);
+        tab.setAttribute("aria-selected", active ? "true" : "false");
+      });
+
+      panels.forEach((panel) => {
+        const active = panel.dataset.panel === id;
+        panel.classList.toggle("is-active", active);
+        panel.hidden = !active;
+      });
+
+      history.replaceState(null, "", `#${id}`);
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const id = tab.dataset.category;
+        if (id) showCategory(id);
+      });
+    });
+
+    const hash = window.location.hash.replace("#", "");
+    if (hash && document.querySelector(`[data-panel="${hash}"]`)) {
+      showCategory(hash);
+    }
+  </script>
 </BaseLayout>

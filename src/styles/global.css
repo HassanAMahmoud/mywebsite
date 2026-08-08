@@ -214,10 +214,16 @@ li {
   text-align: center;
   text-decoration: none;
   color: var(--muted);
-  padding: 0.35rem;
+  padding: 0.55rem 0.35rem;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  width: 100%;
 }
 
-.pub-stat:hover {
+.pub-stat:hover,
+.pub-stat.is-active {
   color: var(--link);
   text-decoration: none;
 }
@@ -229,7 +235,8 @@ li {
   color: #b0b6bb;
 }
 
-.pub-stat:hover .pub-stat-count {
+.pub-stat:hover .pub-stat-count,
+.pub-stat.is-active .pub-stat-count {
   color: var(--link);
 }
 
@@ -249,8 +256,12 @@ li {
 }
 
 .pub-section {
-  margin-top: 2.25rem;
+  margin-top: 1.5rem;
   scroll-margin-top: 4.5rem;
+}
+
+.pub-section[hidden] {
+  display: none;
 }
 
 .pub-section h2 {
