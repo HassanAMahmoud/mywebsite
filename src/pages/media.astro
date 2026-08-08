@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { profile } from "../data/profile";
+import { mediaItems } from "../data/media";
+---
+
+<BaseLayout
+  title={`Media - ${profile.name}`}
+  description="Press and media coverage."
+>
+  <h1>Media</h1>
+  <p>Press coverage and media mentions will be listed here.</p>
+  {
+    mediaItems.map((item) => (
+      <div class="pub-item">
+        <strong>{item.title}</strong>
+        <div class="meta">
+          {item.outlet} · {item.date}
+          {item.link ? (
+            <span>
+              {" · "}
+              <a href={item.link} target="_blank" rel="noopener noreferrer">
+                [link]
+              </a>
+            </span>
+          ) : null}
+        </div>
+      </div>
+    ))
+  }
+</BaseLayout>

@@ -1,13 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { profile } from "../data/profile";
-import { honors, grants, patents } from "../data/awards";
+import { honors, grants } from "../data/awards";
 import { skills } from "../data/skills";
 ---
 
 <BaseLayout
   title={`CV - ${profile.name}`}
-  description="Curriculum vitae, awards, grants, and technical expertise."
+  description="Curriculum vitae and selected highlights."
 >
   <h1>Curriculum Vitae</h1>
   <p>
@@ -41,7 +41,7 @@ import { skills } from "../data/skills";
   <h2>Selected honors</h2>
   <ul>
     {
-      honors.map((item) => (
+      honors.slice(0, 5).map((item) => (
         <li>
           <strong>
             {item.title} ({item.year})
@@ -51,25 +51,14 @@ import { skills } from "../data/skills";
       ))
     }
   </ul>
+  <p>
+    See the full list on the <a href="/awards">Awards</a> page.
+  </p>
 
-  <h2>Grants</h2>
+  <h2>Selected grants</h2>
   <ul>
     {
       grants.map((item) => (
-        <li>
-          <strong>
-            {item.title} ({item.year})
-          </strong>
-          — {item.detail}
-        </li>
-      ))
-    }
-  </ul>
-
-  <h2>Patents</h2>
-  <ul>
-    {
-      patents.map((item) => (
         <li>
           <strong>
             {item.title} ({item.year})

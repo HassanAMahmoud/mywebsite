@@ -5,4 +5,7 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
   output: "static",
   site: "https://hassan-mahmoud.netlify.app",
+  redirects: {
+    "/research": "/projects",
+  },
 });

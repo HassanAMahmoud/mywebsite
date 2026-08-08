@@ -3,8 +3,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { profile } from "../data/profile";
 ---
 
-<BaseLayout title={`About Me - ${profile.name}`}>
+<BaseLayout title={`About Me - ${profile.name}`} showCover={true}>
   <h1>About Me</h1>
+  <p class="lead">{profile.headline}</p>
   <p>{profile.about}</p>
   <p>My research interests include:</p>
   <ul>

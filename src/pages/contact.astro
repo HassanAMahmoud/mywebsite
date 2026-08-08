@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { profile } from "../data/profile";
+---
+
+<BaseLayout title={`Contact - ${profile.name}`} description="Contact information.">
+  <h1>Contact</h1>
+  <p>
+    Open to research collaborations in printed wireless sensing, structural health monitoring,
+    and flexible electronics.
+  </p>
+
+  <ul>
+    <li>
+      <strong>Email:</strong>
+      {" "}
+      <a href={`mailto:${profile.email}`}>{profile.email}</a>
+    </li>
+    <li>
+      <strong>Affiliation:</strong>
+      {" "}
+      {profile.affiliation}
+    </li>
+    <li>
+      <strong>Address:</strong>
+      {" "}
+      {profile.address}
+    </li>
+    <li>
+      <strong>LinkedIn:</strong>
+      {" "}
+      <a href={profile.links.linkedin} target="_blank" rel="noopener noreferrer">
+        {profile.links.linkedin.replace("https://", "")}
+      </a>
+    </li>
+    <li>
+      <strong>Google Scholar:</strong>
+      {" "}
+      <a href={profile.links.scholar} target="_blank" rel="noopener noreferrer">
+        Profile
+      </a>
+    </li>
+    <li>
+      <strong>ORCID:</strong>
+      {" "}
+      <a href={profile.links.orcid} target="_blank" rel="noopener noreferrer">
+        {profile.links.orcid.replace("https://orcid.org/", "")}
+      </a>
+    </li>
+  </ul>
+</BaseLayout>

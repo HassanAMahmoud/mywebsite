@@ -6,8 +6,11 @@ export const profile = {
   affiliation:
     "Mechanics of Composites for Energy and Mobility (MCEM), King Abdullah University of Science and Technology",
   location: "Thuwal, Saudi Arabia",
+  address: "G-3932, KAUST, Thuwal, Kingdom of Saudi Arabia",
   institution: "KAUST",
   portrait: "/images/portrait.png",
+  /** Replace cover-placeholder.svg with your banner image (e.g. cover.jpg). */
+  cover: "/images/cover-placeholder.svg",
   email: "hassan.mahmoud@kaust.edu.sa",
   links: {
     linkedin: "https://www.linkedin.com/in/hassanamahmoud",

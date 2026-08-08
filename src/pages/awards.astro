@@ -1,0 +1,46 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { profile } from "../data/profile";
+import { honors, grants } from "../data/awards";
+---
+
+<BaseLayout
+  title={`Awards - ${profile.name}`}
+  description="Honors, awards, and research funding."
+>
+  <h1>Awards</h1>
+
+  <h2>Honors & awards</h2>
+  <ul>
+    {
+      honors.map((item) => (
+        <li>
+          <strong>
+            {item.title} ({item.year})
+          </strong>
+          — {item.detail}
+        </li>
+      ))
+    }
+  </ul>
+
+  <h2>Grants & funding</h2>
+  <ul>
+    {
+      grants.map((item) => (
+        <li>
+          <strong>
+            {item.title} ({item.year})
+          </strong>
+          — {item.detail}
+        </li>
+      ))
+    }
+  </ul>
+
+  <p>
+    Patents are listed under
+    {" "}
+    <a href="/publications#patents">Publications → Patents</a>.
+  </p>
+</BaseLayout>

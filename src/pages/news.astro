@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { profile } from "../data/profile";
+import { newsItems } from "../data/news";
+---
+
+<BaseLayout title={`News - ${profile.name}`} description="News and updates.">
+  <h1>News</h1>
+  <p>Announcements and updates will appear here.</p>
+  {
+    newsItems.map((item) => (
+      <div class="pub-item">
+        <strong>{item.title}</strong>
+        <div class="meta">{item.date}</div>
+        <p>{item.summary}</p>
+        {item.link ? (
+          <p>
+            <a href={item.link} target="_blank" rel="noopener noreferrer">
+              Read more
+            </a>
+          </p>
+        ) : null}
+      </div>
+    ))
+  }
+</BaseLayout>

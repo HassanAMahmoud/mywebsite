@@ -4,8 +4,12 @@ export type Publication = {
   venue: string;
   year: string;
   doi?: string;
-  status?: "published" | "under-review" | "proceedings";
+  status?: "published" | "under-review" | "proceedings" | "patent" | "talk";
+  /** Replace with a paper figure path under /public/images/pubs/ */
+  image?: string;
 };
+
+export const PUB_PLACEHOLDER = "/images/pub-placeholder.svg";
 
 export const journalPublications: Publication[] = [
   {
@@ -208,5 +212,134 @@ export const proceedings: Publication[] = [
     year: "2023",
     doi: "https://doi.org/10.12783/shm2023/36847",
     status: "proceedings",
+  },
+];
+
+export const patents: Publication[] = [
+  {
+    authors: "H. Mahmoud, N. Jaber, G. Lubineau",
+    title: "Wireless Capacitive Sensor for Low Frequency Vibrations",
+    venue: "Provisional U.S. Application (Submitted)",
+    year: "2025",
+    status: "patent",
+  },
+  {
+    authors:
+      "H. Mahmoud, O. Khalifa, M. Abdullah, A. H. Seno, N. Kouzahya, A. Asiri, A. Al-Jarro, A. Sheri, H. Saiari, T. Al-Naffouri, G. Lubineau",
+    title:
+      "Capacitive Strain Sensing IoT Device with Secure On-Demand Wireless Data Transmission",
+    venue: "Provisional U.S. Application (Submitted)",
+    year: "2025",
+    status: "patent",
+  },
+  {
+    authors:
+      "H. Mahmoud, O. Khalifa, M. Abdullah, A. H. Seno, N. Kouzahya, A. Asiri, A. Al-Jarro, A. Sheri, H. Saiari, T. Al-Naffouri, G. Lubineau",
+    title: "Data Aggregator for Reading Sensed IoT Data on Demand",
+    venue: "Provisional U.S. Application (Submitted)",
+    year: "2025",
+    status: "patent",
+  },
+  {
+    authors: "H. A. Mahmoud, G. Lubineau",
+    title:
+      "Controlling the Sensitivity and Linearity of Capacitive Strain Sensors Using Non-Uniform Interdigitated Electrodes",
+    venue: "Provisional U.S. Application No. 63/725,625",
+    year: "2024",
+    status: "patent",
+  },
+  {
+    authors: "A. Wagih, H. A. Mahmoud, R. Tao, G. Lubineau",
+    title: "Toughening Thermoplastic Adhesive Tapes using Tailored Defects",
+    venue: "Provisional U.S. Application (Submitted)",
+    year: "2022",
+    status: "patent",
+  },
+];
+
+export const talksAndPosters: Publication[] = [
+  {
+    authors: "H. A. Mahmoud",
+    title: "19th Middle East Corrosion Conference (MECC)",
+    venue: "Oral Presentation — Dhahran, KSA",
+    year: "2025",
+    status: "talk",
+  },
+  {
+    authors: "H. A. Mahmoud",
+    title: "IEEE PIMRC",
+    venue: "Oral Presentation + Demo Session — Istanbul, Turkey",
+    year: "2025",
+    status: "talk",
+  },
+  {
+    authors: "H. A. Mahmoud",
+    title: "SPIE Smart Structures + NDE 2025",
+    venue: "Oral and Poster Presentations — Vancouver, BC, Canada",
+    year: "2025",
+    status: "talk",
+  },
+  {
+    authors: "H. A. Mahmoud",
+    title: "LOPEC 2025",
+    venue: "Poster Presentation — Munich, Germany",
+    year: "2025",
+    status: "talk",
+  },
+  {
+    authors: "H. A. Mahmoud",
+    title: "IEEE FLEPS 2024",
+    venue: "Poster Presentation — Tampere, Finland",
+    year: "2024",
+    status: "talk",
+  },
+  {
+    authors: "H. A. Mahmoud",
+    title: "European Workshop on Structural Health Monitoring (EWSHM)",
+    venue: "Oral Presentation — Potsdam, Germany",
+    year: "2024",
+    status: "talk",
+  },
+  {
+    authors: "H. A. Mahmoud",
+    title: "LOPEC 2024",
+    venue: "Poster Presentation — Munich, Germany",
+    year: "2024",
+    status: "talk",
+  },
+  {
+    authors: "H. A. Mahmoud",
+    title: "International Workshop on Structural Health Monitoring (IWSHM)",
+    venue: "Oral Presentation — Stanford, US",
+    year: "2023",
+    status: "talk",
+  },
+  {
+    authors: "H. A. Mahmoud",
+    title: "SMART 2023 (ECCOMAS)",
+    venue: "Oral Presentation — Patras, Greece",
+    year: "2023",
+    status: "talk",
+  },
+  {
+    authors: "H. A. Mahmoud",
+    title: "Energizing the Future with Composites",
+    venue: "Poster Presentation — KAUST, Saudi Arabia",
+    year: "2023",
+    status: "talk",
+  },
+  {
+    authors: "H. A. Mahmoud",
+    title: "EWSHM 2022",
+    venue: "Oral Presentation — Palermo, Italy",
+    year: "2022",
+    status: "talk",
+  },
+  {
+    authors: "H. A. Mahmoud",
+    title: "IMECE 2020",
+    venue: "Oral Presentation — Virtual Conference",
+    year: "2020",
+    status: "talk",
   },
 ];

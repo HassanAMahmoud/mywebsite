@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { profile } from "../data/profile";
+import { teaching, mentorship } from "../data/teaching";
+---
+
+<BaseLayout
+  title={`Teaching & Supervision - ${profile.name}`}
+  description="Teaching and mentorship activities."
+>
+  <h1>Teaching & supervision</h1>
+
+  <h2>Teaching</h2>
+  {
+    teaching.map((item) => (
+      <div class="pub-item">
+        <strong>
+          {item.role} — {item.course}
+        </strong>
+        <div class="meta">
+          {item.institution} ({item.period})
+        </div>
+        {item.detail ? <p>{item.detail}</p> : null}
+      </div>
+    ))
+  }
+
+  <h2>Supervision & mentorship</h2>
+  <ul>
+    {
+      mentorship.map((item) => (
+        <li>
+          <strong>{item.title}</strong>
+          <br />
+          {item.detail}
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>

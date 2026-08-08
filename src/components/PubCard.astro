@@ -1,0 +1,34 @@
+---
+import { PUB_PLACEHOLDER, type Publication } from "../data/publications";
+
+interface Props {
+  pub: Publication;
+}
+
+const { pub } = Astro.props;
+const image = pub.image ?? PUB_PLACEHOLDER;
+---
+
+<article class="pub-card">
+  <div class="pub-thumb">
+    <img src={image} alt="" width="320" height="220" loading="lazy" />
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title">{pub.title}</h3>
+    <p class="pub-meta">
+      {pub.authors}
+      <br />
+      <em>{pub.venue}</em> ({pub.year})
+      {
+        pub.doi ? (
+          <span>
+            {" · "}
+            <a href={pub.doi} target="_blank" rel="noopener noreferrer">
+              [link]
+            </a>
+          </span>
+        ) : null
+      }
+    </p>
+  </div>
+</article>
