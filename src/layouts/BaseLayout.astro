@@ -1,0 +1,46 @@
+---
+import Nav from "../components/Nav.astro";
+import Sidebar from "../components/Sidebar.astro";
+import { profile } from "../data/profile";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${profile.name} | ${profile.title}`,
+  description = profile.headline,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Nav />
+    <div class="page-shell">
+      <Sidebar />
+      <main class="content">
+        <slot />
+      </main>
+    </div>
+    <footer class="site-footer">
+      <div class="inner">
+        <p>
+          © {new Date().getFullYear()}
+          {profile.name}. {profile.title}.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

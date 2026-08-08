@@ -1,0 +1,77 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { profile } from "../data/profile";
+import {
+  journalPublications,
+  underReview,
+  proceedings,
+} from "../data/publications";
+---
+
+<BaseLayout
+  title={`Publications - ${profile.name}`}
+  description="Journal articles, manuscripts under review, and conference proceedings."
+>
+  <h1>Publications</h1>
+  <p>
+    A selected list of publications. Also see my
+    {" "}
+    <a href={profile.links.scholar} target="_blank" rel="noopener noreferrer">
+      Google Scholar
+    </a>
+    {" "}
+    profile.
+  </p>
+
+  <h2>Journal publications</h2>
+  {
+    journalPublications.map((pub) => (
+      <div class="pub-item">
+        <strong>{pub.title}</strong>
+        <div class="meta">
+          {pub.authors}. <em>{pub.venue}</em> ({pub.year})
+          {pub.doi ? (
+            <span>
+              {" · "}
+              <a href={pub.doi} target="_blank" rel="noopener noreferrer">
+                DOI
+              </a>
+            </span>
+          ) : null}
+        </div>
+      </div>
+    ))
+  }
+
+  <h2>Under review</h2>
+  {
+    underReview.map((pub) => (
+      <div class="pub-item">
+        <strong>{pub.title}</strong>
+        <div class="meta">
+          {pub.authors}. {pub.venue} ({pub.year})
+        </div>
+      </div>
+    ))
+  }
+
+  <h2>Proceedings</h2>
+  {
+    proceedings.map((pub) => (
+      <div class="pub-item">
+        <strong>{pub.title}</strong>
+        <div class="meta">
+          {pub.authors}. <em>{pub.venue}</em> ({pub.year})
+          {pub.doi ? (
+            <span>
+              {" · "}
+              <a href={pub.doi} target="_blank" rel="noopener noreferrer">
+                DOI
+              </a>
+            </span>
+          ) : null}
+        </div>
+      </div>
+    ))
+  }
+</BaseLayout>

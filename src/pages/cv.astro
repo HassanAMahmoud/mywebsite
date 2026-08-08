@@ -1,0 +1,96 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { profile } from "../data/profile";
+import { honors, grants, patents } from "../data/awards";
+import { skills } from "../data/skills";
+---
+
+<BaseLayout
+  title={`CV - ${profile.name}`}
+  description="Curriculum vitae, awards, grants, and technical expertise."
+>
+  <h1>Curriculum Vitae</h1>
+  <p>
+    <a class="btn" href={profile.links.cv} target="_blank" rel="noopener noreferrer">
+      Download full CV (PDF)
+    </a>
+  </p>
+
+  <h2>Current position</h2>
+  <p>
+    <strong>Postdoctoral Fellow</strong>, MCEM Lab, KAUST (November 2025 – Present)
+  </p>
+  <p>{profile.affiliation}</p>
+
+  <h2>Education</h2>
+  <ul>
+    {
+      profile.education.map((item) => (
+        <li>
+          <strong>
+            {item.degree} ({item.year})
+          </strong>
+          , {item.school}
+          <br />
+          <em>{item.detail}</em>
+        </li>
+      ))
+    }
+  </ul>
+
+  <h2>Selected honors</h2>
+  <ul>
+    {
+      honors.map((item) => (
+        <li>
+          <strong>
+            {item.title} ({item.year})
+          </strong>
+          — {item.detail}
+        </li>
+      ))
+    }
+  </ul>
+
+  <h2>Grants</h2>
+  <ul>
+    {
+      grants.map((item) => (
+        <li>
+          <strong>
+            {item.title} ({item.year})
+          </strong>
+          — {item.detail}
+        </li>
+      ))
+    }
+  </ul>
+
+  <h2>Patents</h2>
+  <ul>
+    {
+      patents.map((item) => (
+        <li>
+          <strong>
+            {item.title} ({item.year})
+          </strong>
+          — {item.detail}
+        </li>
+      ))
+    }
+  </ul>
+
+  <h2>Technical expertise</h2>
+  {
+    skills.map((group) => (
+      <div>
+        <h3>{group.title}</h3>
+        <ul>
+          {group.items.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    ))
+  }
+</BaseLayout>
