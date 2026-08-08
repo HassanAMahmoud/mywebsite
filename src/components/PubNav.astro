@@ -1,0 +1,52 @@
+---
+import { profile } from "../data/profile";
+import {
+  journalPublications,
+  proceedings,
+  patents,
+  talksAndPosters,
+} from "../data/publications";
+
+const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
+
+const sections = [
+  {
+    href: "/publications/journals",
+    label: `${journalPublications.length} Journal papers`,
+  },
+  {
+    href: "/publications/proceedings",
+    label: `${proceedings.length} Conference proceedings`,
+  },
+  {
+    href: "/publications/patents",
+    label: `${patents.length} Patents`,
+  },
+  {
+    href: "/publications/talks",
+    label: `${talksAndPosters.length} Talks and posters`,
+  },
+];
+---
+
+<nav class="pub-nav" aria-label="Publication categories">
+  <ul>
+    {
+      sections.map((section) => (
+        <li>
+          <a
+            href={section.href}
+            aria-current={pathname === section.href ? "page" : undefined}
+          >
+            {section.label}
+          </a>
+        </li>
+      ))
+    }
+    <li>
+      <a href={profile.links.scholar} target="_blank" rel="noopener noreferrer">
+        Google Scholar profile
+      </a>
+    </li>
+  </ul>
+</nav>

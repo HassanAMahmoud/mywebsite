@@ -192,6 +192,36 @@ li {
   font-size: 0.95rem;
 }
 
+.pub-meta strong {
+  color: var(--heading);
+  font-weight: 700;
+}
+
+.pub-nav ul {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.pub-nav a {
+  color: var(--link);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.pub-nav a:hover,
+.pub-nav a[aria-current="page"] {
+  text-decoration: underline;
+  color: var(--link-hover);
+}
+
+.pub-hint {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
 .content h2 {
   scroll-margin-top: 4.5rem;
 }

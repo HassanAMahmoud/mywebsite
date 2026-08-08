@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PubCard from "../../components/PubCard.astro";
+import PubNav from "../../components/PubNav.astro";
+import { profile } from "../../data/profile";
+import { journalPublications, underReview } from "../../data/publications";
+---
+
+<BaseLayout
+  title={`Journal papers - ${profile.name}`}
+  description="Journal publications and manuscripts under review."
+>
+  <h1>Journal papers</h1>
+  <PubNav />
+
+  <h2>Published</h2>
+  {journalPublications.map((pub) => <PubCard pub={pub} />)}
+
+  <h2>Under review</h2>
+  {underReview.map((pub) => <PubCard pub={pub} />)}
+</BaseLayout>

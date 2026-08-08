@@ -1,0 +1,18 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PubNav from "../../components/PubNav.astro";
+import { profile } from "../../data/profile";
+---
+
+<BaseLayout
+  title={`Publications - ${profile.name}`}
+  description="Journal papers, conference proceedings, patents, talks and posters."
+>
+  <h1>Publications</h1>
+  <p>Select a category:</p>
+  <PubNav />
+  <p class="pub-hint">
+    Each category opens on its own page with paper thumbnails (placeholders until
+    figures are added).
+  </p>
+</BaseLayout>

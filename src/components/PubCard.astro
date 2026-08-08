@@ -1,5 +1,6 @@
 ---
 import { PUB_PLACEHOLDER, type Publication } from "../data/publications";
+import { formatAuthorsHtml } from "../utils/formatAuthors";
 
 interface Props {
   pub: Publication;
@@ -7,6 +8,7 @@ interface Props {
 
 const { pub } = Astro.props;
 const image = pub.image ?? PUB_PLACEHOLDER;
+const authorsHtml = formatAuthorsHtml(pub.authors);
 ---
 
 <article class="pub-card">
@@ -16,7 +18,7 @@ const image = pub.image ?? PUB_PLACEHOLDER;
   <div class="pub-body">
     <h3 class="pub-title">{pub.title}</h3>
     <p class="pub-meta">
-      {pub.authors}
+      <span set:html={authorsHtml} />
       <br />
       <em>{pub.venue}</em> ({pub.year})
       {
