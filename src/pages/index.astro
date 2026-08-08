@@ -7,19 +7,16 @@ const affiliations = [
     name: "KAUST",
     href: "https://www.kaust.edu.sa/",
     logo: "/images/logos/kaust.png",
-    dark: true,
   },
   {
     name: "The British University in Egypt",
     href: "https://www.bue.edu.eg/",
     logo: "/images/logos/bue.png",
-    dark: false,
   },
   {
     name: "Cairo University",
     href: "https://cu.edu.eg/",
     logo: "/images/logos/cairo.png",
-    dark: false,
   },
 ];
 ---
@@ -36,12 +33,11 @@ const affiliations = [
   <h2>My Bio</h2>
   {profile.bio.split("\n\n").map((paragraph) => <p>{paragraph}</p>)}
 
-  <h2>Affiliations</h2>
   <div class="logo-row">
     {
       affiliations.map((item) => (
         <a
-          class:list={["logo-card", { "logo-card-dark": item.dark }]}
+          class="logo-link"
           href={item.href}
           target="_blank"
           rel="noopener noreferrer"
@@ -53,3 +49,4 @@ const affiliations = [
     }
   </div>
 </BaseLayout>
+
