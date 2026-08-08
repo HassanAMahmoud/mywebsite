@@ -1,0 +1,40 @@
+---
+import { projects } from "../data/projects";
+import { profile } from "../data/profile";
+---
+
+<section class="section" id="research">
+  <div class="container reveal">
+    <p class="eyebrow">Research</p>
+    <h2 class="section-heading">Selected research themes</h2>
+    <p class="section-lead">
+      Work spanning printable wireless sensing, flexible electronics, and composite mechanics —
+      from crack-based RFID sensors to e-tattoo SHM and wearable interfaces.
+    </p>
+    <div class="project-grid">
+      {projects.map((project) => (
+        <article class="panel project-card">
+          <h3>{project.title}</h3>
+          <p>{project.summary}</p>
+          <div class="tags">
+            {project.tags.map((tag) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+          {project.link && (
+            <p class="project-link">
+              <a href={project.link} target="_blank" rel="noopener noreferrer">
+                Related publication
+              </a>
+            </p>
+          )}
+        </article>
+      ))}
+    </div>
+    <div class="section-actions">
+      <a class="btn btn-ghost" href={profile.links.researchPdf} target="_blank" rel="noopener noreferrer">
+        Download research overview PDF
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,21 @@
+---
+import { profile } from "../data/profile";
+---
+
+<section class="hero" id="top" aria-label="Introduction">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow">KAUST · MCEM Lab</p>
+      <h1>{profile.name}</h1>
+      <p class="role">{profile.title}</p>
+      <p class="tagline">{profile.headline}</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">Contact</a>
+        <a class="btn btn-ghost" href={profile.links.cv} download>Download CV</a>
+        <a class="btn btn-ghost" href={profile.links.scholar} target="_blank" rel="noopener noreferrer">
+          Google Scholar
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

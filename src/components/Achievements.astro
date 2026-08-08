@@ -1,0 +1,55 @@
+---
+import { honors, grants, patents } from "../data/awards";
+---
+
+<section class="section" id="achievements">
+  <div class="container reveal">
+    <p class="eyebrow">Achievements</p>
+    <h2 class="section-heading">Awards, grants & patents</h2>
+    <p class="section-lead">
+      Recognition for research excellence, funded sensing programs, and provisional patents in
+      wireless and capacitive sensing.
+    </p>
+    <div class="award-grid">
+      <div class="panel">
+        <h3>Honors</h3>
+        <ul>
+          {honors.map((item) => (
+            <li>
+              <strong>
+                {item.title} ({item.year})
+              </strong>
+              <span>{item.detail}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Grants</h3>
+        <ul>
+          {grants.map((item) => (
+            <li>
+              <strong>
+                {item.title} ({item.year})
+              </strong>
+              <span>{item.detail}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Patents</h3>
+        <ul>
+          {patents.map((item) => (
+            <li>
+              <strong>
+                {item.title} ({item.year})
+              </strong>
+              <span>{item.detail}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
