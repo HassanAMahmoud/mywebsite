@@ -3,7 +3,7 @@ export function formatAuthorsHtml(authors: string): string {
   const patterns = [
     /Hassan A\.\s*Mahmoud/gi,
     /H\.\s*A\.\s*Mahmoud/gi,
-    /H\.\s*Mahmoud/gi,
+    /H\.\s*Mahmoud(?!\s*A\.)/gi,
   ];
 
   let result = authors;

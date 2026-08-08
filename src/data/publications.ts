@@ -13,11 +13,20 @@ export const PUB_PLACEHOLDER = "/images/pub-placeholder.svg";
 
 export const journalPublications: Publication[] = [
   {
+    authors: "N. Divakaran, Y. Kara, H. A. Mahmoud, E. Hill, G. Lubineau",
+    title:
+      "Frequency-Tunable Piezocapacitive PDMS/MWCNT Nanocomposite Stretchable Sensors for Sign Language Recognition",
+    venue: "Materials & Design",
+    year: "2026",
+    doi: "https://doi.org/10.1016/j.matdes.2026.116194",
+    status: "published",
+  },
+  {
     authors: "A. Abdou, H. A. Mahmoud, M. Al Refae, Y. Zhang, H. Rekik, A. Seno, G. Lubineau",
     title:
       "Leveraging Process-Induced Electromechanical Anisotropy of Laser-Induced Graphene for One-shot Engraving of Highly Sensitive Strain Sensors",
     venue: "ACS Applied Nano Materials",
-    year: "2025",
+    year: "2026",
     doi: "https://doi.org/10.1021/acsanm.5c05242",
     status: "published",
   },
@@ -170,6 +179,21 @@ export const underReview: Publication[] = [
 
 export const proceedings: Publication[] = [
   {
+    authors: "H. A. Mahmoud, O. Khalifa, Y. Shi, A. Wagih, T. Y. Al-Naffouri, G. Lubineau",
+    title: "Printed E-Tattoo Wireless Sensor for Smart Monitoring of Composite Structures",
+    venue: "EWSHM 2026",
+    year: "2026",
+    status: "proceedings",
+  },
+  {
+    authors:
+      "H. A. Mahmoud, O. Khalifa, A. H. Seno, M. A. Hussaini, N. Kouzahya, A. Asiri, A. Al-Jarro, A. Shehri, H. Saiari, T. Y. Al-Naffouri, G. Lubineau",
+    title: "Capacitive Wireless Strain Sensors for Structural Health Monitoring of Composite Pipes",
+    venue: "EWSHM 2026",
+    year: "2026",
+    status: "proceedings",
+  },
+  {
     authors: "H. A. Mahmoud, G. Lubineau",
     title:
       "Advanced E-Tattoo Wireless Strain Sensors for Smart Structural Health Monitoring of Composite Structures",
@@ -213,11 +237,44 @@ export const proceedings: Publication[] = [
     doi: "https://doi.org/10.12783/shm2023/36847",
     status: "proceedings",
   },
+  {
+    authors: "G. Lubineau, H. A. Mahmoud, H. Nesser",
+    title:
+      "Toward Smart Composites for Structural Health Monitoring via Highly Sensitive Capacitive Wireless Sensor",
+    venue: "SMART 2023 (ECCOMAS)",
+    year: "2023",
+    doi: "https://doi.org/10.7712/150123.9766.443434",
+    status: "proceedings",
+  },
+  {
+    authors: "H. A. Mahmoud, M. Shazly, Y. Bahie El-din, E. El-kashif",
+    title:
+      "Analysis of Composite Bolted Connection Joints under Out-of-Plane Loading",
+    venue: "ASME IMECE",
+    year: "2020",
+    doi: "https://doi.org/10.1115/IMECE2020-23303",
+    status: "proceedings",
+  },
 ];
 
 export const patents: Publication[] = [
   {
-    authors: "H. Mahmoud, N. Jaber, G. Lubineau",
+    authors: "Y. Shi, H. A. Mahmoud, G. Lubineau",
+    title:
+      "Embedded Passive Wireless Capacitive Sensing System and Method for Real-Time Curing Monitoring",
+    venue: "Provisional U.S. Application — Docket No. 0338-855/2026-180-01",
+    year: "2026",
+    status: "patent",
+  },
+  {
+    authors: "A. Wagih, H. Ejaz, H. A. Mahmoud, G. Lubineau",
+    title: "Inspection of GFRP Composite Adhesive Joint using Optical Transillumination",
+    venue: "Provisional U.S. Application — Docket No. 0338-843/2026-148-01",
+    year: "2026",
+    status: "patent",
+  },
+  {
+    authors: "H. A. Mahmoud, N. Jaber, G. Lubineau",
     title: "Wireless Capacitive Sensor for Low Frequency Vibrations",
     venue: "Provisional U.S. Application (Submitted)",
     year: "2025",
@@ -225,18 +282,26 @@ export const patents: Publication[] = [
   },
   {
     authors:
-      "H. Mahmoud, O. Khalifa, M. Abdullah, A. H. Seno, N. Kouzahya, A. Asiri, A. Al-Jarro, A. Sheri, H. Saiari, T. Al-Naffouri, G. Lubineau",
+      "H. A. Mahmoud, O. Khalifa, M. Abdullah, A. H. Seno, N. Kouzahya, A. Asiri, A. Al-Jarro, A. Shehri, H. Saiari, T. Al-Naffouri, G. Lubineau",
     title:
       "Capacitive Strain Sensing IoT Device with Secure On-Demand Wireless Data Transmission",
-    venue: "Provisional U.S. Application (Submitted)",
+    venue: "Provisional U.S. Application — filed November 15, 2025",
     year: "2025",
     status: "patent",
   },
   {
     authors:
-      "H. Mahmoud, O. Khalifa, M. Abdullah, A. H. Seno, N. Kouzahya, A. Asiri, A. Al-Jarro, A. Sheri, H. Saiari, T. Al-Naffouri, G. Lubineau",
+      "H. A. Mahmoud, O. Khalifa, M. Abdullah, A. H. Seno, N. Kouzahya, A. Asiri, A. Al-Jarro, A. Shehri, H. Saiari, T. Al-Naffouri, G. Lubineau",
     title: "Data Aggregator for Reading Sensed IoT Data on Demand",
-    venue: "Provisional U.S. Application (Submitted)",
+    venue: "Provisional U.S. Application — filed November 15, 2025",
+    year: "2025",
+    status: "patent",
+  },
+  {
+    authors: "N. Divakaran, H. A. Mahmoud, G. Lubineau",
+    title:
+      "PDMS-MWCNT-Based Piezoresistive Ink with Tunable Viscosity for Stretchable Sensor Fabrication",
+    venue: "Provisional U.S. Application No. 2026-029",
     year: "2025",
     status: "patent",
   },
@@ -260,85 +325,92 @@ export const patents: Publication[] = [
 export const talksAndPosters: Publication[] = [
   {
     authors: "H. A. Mahmoud",
-    title: "19th Middle East Corrosion Conference (MECC)",
-    venue: "Oral Presentation — Dhahran, KSA",
+    title: "European Workshop on SHM — EWSHM 2026",
+    venue: "Oral + Demo Session — Toulouse, France",
+    year: "2026",
+    status: "talk",
+  },
+  {
+    authors: "H. A. Mahmoud",
+    title: "Saudi Aramco Presentation",
+    venue: "Dhahran, KSA",
     year: "2025",
     status: "talk",
   },
   {
     authors: "H. A. Mahmoud",
     title: "IEEE PIMRC",
-    venue: "Oral Presentation + Demo Session — Istanbul, Turkey",
+    venue: "Oral + Demo Session — Istanbul, Turkey",
     year: "2025",
     status: "talk",
   },
   {
     authors: "H. A. Mahmoud",
     title: "SPIE Smart Structures + NDE 2025",
-    venue: "Oral and Poster Presentations — Vancouver, BC, Canada",
+    venue: "Oral and Poster — Vancouver, Canada",
     year: "2025",
     status: "talk",
   },
   {
     authors: "H. A. Mahmoud",
     title: "LOPEC 2025",
-    venue: "Poster Presentation — Munich, Germany",
+    venue: "Poster — Munich, Germany",
     year: "2025",
     status: "talk",
   },
   {
     authors: "H. A. Mahmoud",
     title: "IEEE FLEPS 2024",
-    venue: "Poster Presentation — Tampere, Finland",
+    venue: "Poster — Tampere, Finland",
     year: "2024",
     status: "talk",
   },
   {
     authors: "H. A. Mahmoud",
-    title: "European Workshop on Structural Health Monitoring (EWSHM)",
-    venue: "Oral Presentation — Potsdam, Germany",
+    title: "European Workshop on SHM — EWSHM 2024",
+    venue: "Oral — Potsdam, Germany",
     year: "2024",
     status: "talk",
   },
   {
     authors: "H. A. Mahmoud",
     title: "LOPEC 2024",
-    venue: "Poster Presentation — Munich, Germany",
+    venue: "Poster — Munich, Germany",
     year: "2024",
     status: "talk",
   },
   {
     authors: "H. A. Mahmoud",
-    title: "International Workshop on Structural Health Monitoring (IWSHM)",
-    venue: "Oral Presentation — Stanford, US",
+    title: "International Workshop on SHM — IWSHM 2023",
+    venue: "Oral — Stanford, USA",
     year: "2023",
     status: "talk",
   },
   {
     authors: "H. A. Mahmoud",
-    title: "SMART 2023 (ECCOMAS)",
-    venue: "Oral Presentation — Patras, Greece",
+    title: "ECCOMAS SMART 2023",
+    venue: "Oral — Patras, Greece",
     year: "2023",
     status: "talk",
   },
   {
     authors: "H. A. Mahmoud",
     title: "Energizing the Future with Composites",
-    venue: "Poster Presentation — KAUST, Saudi Arabia",
+    venue: "Poster — KAUST, KSA",
     year: "2023",
     status: "talk",
   },
   {
     authors: "H. A. Mahmoud",
-    title: "EWSHM 2022",
-    venue: "Oral Presentation — Palermo, Italy",
+    title: "European Workshop on SHM — EWSHM 2022",
+    venue: "Oral — Palermo, Italy",
     year: "2022",
     status: "talk",
   },
   {
     authors: "H. A. Mahmoud",
-    title: "IMECE 2020",
-    venue: "Oral Presentation — Virtual Conference",
+    title: "ASME IMECE 2020",
+    venue: "Oral — Virtual",
     year: "2020",
     status: "talk",
   },

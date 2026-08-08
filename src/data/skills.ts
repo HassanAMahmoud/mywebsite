@@ -5,32 +5,32 @@ export type SkillGroup = {
 
 export const skills: SkillGroup[] = [
   {
-    title: "Modeling, simulation & design",
+    title: "Modeling & simulation",
     items: [
-      "ABAQUS (structural, thermal, composites, fracture)",
-      "ANSYS (mechanical, CFD, thermal, Maxwell)",
+      "ABAQUS (structural, thermal, composites, fracture/damage)",
+      "ANSYS (mechanical, thermal, Maxwell)",
       "HFSS, CST Studio, LTSpice, COMSOL",
       "SolidWorks, Geomagic Design X, Avizo, Clewin",
-      "MATLAB and Python",
+      "MATLAB and Python for analysis and sensor signal processing",
     ],
   },
   {
     title: "Fabrication & prototyping",
     items: [
       "Composite manufacturing (hand layup, vacuum infusion, prepreg)",
-      "Micro/nano-fabrication (sputtering, etching, photolithography, RIE)",
+      "Micro/nanofabrication (sputtering, etching, photolithography, RIE)",
       "Printed electronics (screen printing, Voltera NOVA dispenser)",
-      "Laser direct writing and polymer / SLS 3D printing",
-      "Waterjet and laser cutting",
+      "Polymer/SLS 3D printing, laser direct writing",
+      "Waterjet and laser cutting of patterned sheets",
     ],
   },
   {
     title: "Characterization",
     items: [
-      "Mechanical testing (tensile, fracture, vibration, nanoindentation)",
-      "CT, SEM, optical microscopy, Raman, profilometry",
-      "RF and electrical metrology (VNA, LCR, impedance analyzers)",
-      "Four-point probe and probe-station measurements",
+      "Mechanical, fracture, fatigue, and impact testing (incl. SHPB)",
+      "In-situ X-ray CT, synchrotron imaging, DIC, and DVC",
+      "SEM, optical microscopy, Raman, DSC, FTIR, profilometry",
+      "RF/electrical metrology (VNA, LCR, impedance analyzers)",
     ],
   },
 ];
