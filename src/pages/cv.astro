@@ -1,85 +1,166 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { profile } from "../data/profile";
+import { currentPositions, previousPositions } from "../data/experience";
 import { honors, grants } from "../data/awards";
+import { teaching } from "../data/teaching";
 import { skills } from "../data/skills";
+
+const biographyHtml = `I am a mechanical engineer with a <strong>PhD in Mechanical Engineering</strong> from KAUST (2025). I currently work as a <strong>Postdoctoral Fellow</strong> in the MCEM Lab at KAUST, at the intersection of <strong>architected material mechanics</strong>, <strong>hands-on fabrication</strong>, and <strong>computational modeling</strong>. My research closes the loop from geometry-driven design to fabrication, mechanical testing, and finite-element prediction — including printable wireless sensors, toughness-tailored composite joints, and in-situ characterization (X-ray CT/synchrotron, DIC/DVC).`;
 ---
 
-<BaseLayout
-  title={`CV - ${profile.name}`}
-  description="Curriculum vitae and selected highlights."
->
-  <h1>Curriculum Vitae</h1>
-  <p>
-    <a class="btn" href={profile.links.cv} target="_blank" rel="noopener noreferrer">
-      Download full CV (PDF)
-    </a>
-  </p>
+<BaseLayout title={`CV - ${profile.name}`} description="Curriculum vitae.">
+  <article class="cv-doc">
+    <header class="cv-header">
+      <h1 class="cv-name">{profile.name}</h1>
+      <p class="cv-contacts">
+        <a href={`mailto:${profile.email}`}>{profile.email}</a>
+        <span class="cv-sep">·</span>
+        <a href="/">Personal website</a>
+        <span class="cv-sep">·</span>
+        <a href={profile.links.cv} target="_blank" rel="noopener noreferrer">
+          Download PDF
+        </a>
+      </p>
+    </header>
 
-  <h2>Current position</h2>
-  <p>
-    <strong>Postdoctoral Fellow</strong>, MCEM Lab, KAUST (November 2025 – Present)
-  </p>
-  <p>{profile.affiliation}</p>
+    <section class="cv-section">
+      <h2>Biography</h2>
+      <p set:html={biographyHtml} />
+    </section>
 
-  <h2>Education</h2>
-  <ul>
-    {
-      profile.education.map((item) => (
-        <li>
-          <strong>
-            {item.degree} ({item.year})
-          </strong>
-          , {item.school}
-          <br />
-          <em>{item.detail}</em>
-        </li>
-      ))
-    }
-  </ul>
+    <section class="cv-section">
+      <h2>Current positions</h2>
+      {
+        currentPositions.map((item) => (
+          <div class="cv-row">
+            <div class="cv-meta">
+              <div>{item.period}</div>
+              <div>{item.place}</div>
+            </div>
+            <div class="cv-detail">
+              <div class="cv-role">{item.title}</div>
+              <div>{item.org}</div>
+              {item.detail ? <div class="cv-sub">{item.detail}</div> : null}
+            </div>
+          </div>
+        ))
+      }
+    </section>
 
-  <h2>Selected honors</h2>
-  <ul>
-    {
-      honors.slice(0, 5).map((item) => (
-        <li>
-          <strong>
-            {item.title} ({item.year})
-          </strong>
-          — {item.detail}
-        </li>
-      ))
-    }
-  </ul>
-  <p>
-    See the full list on the <a href="/awards">Awards</a> page.
-  </p>
+    <section class="cv-section">
+      <h2>Research interests</h2>
+      <ul class="cv-list">
+        {profile.interests.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
 
-  <h2>Selected grants</h2>
-  <ul>
-    {
-      grants.map((item) => (
-        <li>
-          <strong>
-            {item.title} ({item.year})
-          </strong>
-          — {item.detail}
-        </li>
-      ))
-    }
-  </ul>
+    <section class="cv-section">
+      <h2>Education</h2>
+      {
+        profile.education.map((item) => (
+          <div class="cv-row">
+            <div class="cv-meta">
+              <div>{item.year}</div>
+            </div>
+            <div class="cv-detail">
+              <div class="cv-role">{item.degree}</div>
+              <div>{item.school}</div>
+              <div class="cv-sub">{item.detail}</div>
+            </div>
+          </div>
+        ))
+      }
+    </section>
 
-  <h2>Technical expertise</h2>
-  {
-    skills.map((group) => (
-      <div>
-        <h3>{group.title}</h3>
-        <ul>
-          {group.items.map((item) => (
-            <li>{item}</li>
-          ))}
-        </ul>
-      </div>
-    ))
-  }
+    <section class="cv-section">
+      <h2>Previous positions</h2>
+      {
+        previousPositions.map((item) => (
+          <div class="cv-row">
+            <div class="cv-meta">
+              <div>{item.period}</div>
+              <div>{item.place}</div>
+            </div>
+            <div class="cv-detail">
+              <div class="cv-role">{item.title}</div>
+              <div>{item.org}</div>
+              {item.detail ? <div class="cv-sub">{item.detail}</div> : null}
+            </div>
+          </div>
+        ))
+      }
+    </section>
+
+    <section class="cv-section">
+      <h2>Honors & awards</h2>
+      {
+        honors.map((item) => (
+          <div class="cv-row">
+            <div class="cv-meta">
+              <div>{item.year}</div>
+            </div>
+            <div class="cv-detail">
+              <div class="cv-role">{item.title}</div>
+              <div>{item.detail}</div>
+            </div>
+          </div>
+        ))
+      }
+    </section>
+
+    <section class="cv-section">
+      <h2>Grants & research funding</h2>
+      {
+        grants.map((item) => (
+          <div class="cv-row">
+            <div class="cv-meta">
+              <div>{item.year}</div>
+            </div>
+            <div class="cv-detail">
+              <div class="cv-role">{item.title}</div>
+              <div>{item.detail}</div>
+            </div>
+          </div>
+        ))
+      }
+    </section>
+
+    <section class="cv-section">
+      <h2>Teaching</h2>
+      {
+        teaching.map((item) => (
+          <div class="cv-row">
+            <div class="cv-meta">
+              <div>{item.period}</div>
+              <div>Thuwal (Saudi Arabia)</div>
+            </div>
+            <div class="cv-detail">
+              <div class="cv-role">{item.role}</div>
+              <div>
+                {item.course}
+              </div>
+              <div class="cv-sub">{item.institution}</div>
+            </div>
+          </div>
+        ))
+      }
+    </section>
+
+    <section class="cv-section">
+      <h2>Technical expertise</h2>
+      {
+        skills.map((group) => (
+          <div class="cv-skill-block">
+            <div class="cv-role">{group.title}</div>
+            <ul class="cv-list">
+              {group.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </section>
+  </article>
 </BaseLayout>

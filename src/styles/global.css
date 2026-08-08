@@ -9,6 +9,7 @@
   --sidebar-bg: #f8f9fa;
   --sidebar-width: 17.5rem;
   --max: 1200px;
+  --cv-accent: #7a1f2b;
   --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
     Arial, sans-serif;
 }
@@ -482,4 +483,120 @@ li {
   .pub-stats {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .cv-row {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+
+  .cv-meta {
+    margin-bottom: 0.15rem;
+  }
+}
+
+/* Academic CV document style */
+.cv-doc {
+  max-width: 48rem;
+}
+
+.cv-header {
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.cv-name {
+  font-size: clamp(1.8rem, 3vw, 2.35rem);
+  color: #1f2327;
+  margin: 0 0 0.65rem;
+  letter-spacing: -0.02em;
+}
+
+.cv-contacts {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem 0.55rem;
+}
+
+.cv-contacts a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.cv-contacts a:hover {
+  color: var(--cv-accent);
+}
+
+.cv-sep {
+  color: #c5c9cd;
+}
+
+.cv-section {
+  margin-bottom: 1.6rem;
+}
+
+.cv-section > h2 {
+  margin: 0 0 0.85rem;
+  color: var(--cv-accent);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1.5px solid var(--cv-accent);
+  padding-bottom: 0.35rem;
+}
+
+.cv-section p {
+  margin: 0;
+  line-height: 1.65;
+}
+
+.cv-section p strong {
+  color: #1f2327;
+}
+
+.cv-row {
+  display: grid;
+  grid-template-columns: 11.5rem minmax(0, 1fr);
+  gap: 1rem;
+  margin-bottom: 0.95rem;
+}
+
+.cv-meta {
+  color: var(--text);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.cv-detail {
+  min-width: 0;
+}
+
+.cv-role {
+  color: var(--cv-accent);
+  font-weight: 700;
+  margin-bottom: 0.1rem;
+}
+
+.cv-sub {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 0.95rem;
+  margin-top: 0.15rem;
+}
+
+.cv-list {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.cv-list li {
+  margin-bottom: 0.35rem;
+}
+
+.cv-skill-block {
+  margin-bottom: 0.85rem;
 }
