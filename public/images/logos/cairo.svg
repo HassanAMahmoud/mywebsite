@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" role="img" aria-label="Cairo University">
-  <rect width="240" height="80" rx="8" fill="#0b3d91"/>
-  <circle cx="40" cy="40" r="22" fill="#f2c94c"/>
-  <text x="40" y="46" text-anchor="middle" font-family="Georgia, serif" font-size="18" font-weight="700" fill="#0b3d91">CU</text>
-  <text x="72" y="36" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff">Cairo University</text>
-  <text x="72" y="56" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#d7e4ff">Faculty of Engineering</text>
-</svg>

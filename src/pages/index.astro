@@ -7,16 +7,19 @@ const affiliations = [
     name: "KAUST",
     href: "https://www.kaust.edu.sa/",
     logo: "/images/logos/kaust.png",
+    dark: true,
   },
   {
     name: "The British University in Egypt",
     href: "https://www.bue.edu.eg/",
-    logo: "/images/logos/bue.svg",
+    logo: "/images/logos/bue.png",
+    dark: false,
   },
   {
     name: "Cairo University",
     href: "https://cu.edu.eg/",
-    logo: "/images/logos/cairo.svg",
+    logo: "/images/logos/cairo.png",
+    dark: false,
   },
 ];
 ---
@@ -37,9 +40,14 @@ const affiliations = [
   <div class="logo-row">
     {
       affiliations.map((item) => (
-        <a class="logo-card" href={item.href} target="_blank" rel="noopener noreferrer">
+        <a
+          class:list={["logo-card", { "logo-card-dark": item.dark }]}
+          href={item.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={item.name}
+        >
           <img src={item.logo} alt={item.name} loading="lazy" />
-          <span>{item.name}</span>
         </a>
       ))
     }
