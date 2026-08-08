@@ -1,9 +1,27 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { profile } from "../data/profile";
+
+const affiliations = [
+  {
+    name: "KAUST",
+    href: "https://www.kaust.edu.sa/",
+    logo: "/images/logos/kaust.png",
+  },
+  {
+    name: "The British University in Egypt",
+    href: "https://www.bue.edu.eg/",
+    logo: "/images/logos/bue.svg",
+  },
+  {
+    name: "Cairo University",
+    href: "https://cu.edu.eg/",
+    logo: "/images/logos/cairo.svg",
+  },
+];
 ---
 
-<BaseLayout title={`About Me - ${profile.name}`} showCover={true}>
+<BaseLayout title={profile.name} showCover={true}>
   <h1>About Me</h1>
   <p class="lead">{profile.headline}</p>
   <p>{profile.about}</p>
@@ -15,19 +33,15 @@ import { profile } from "../data/profile";
   <h2>My Bio</h2>
   {profile.bio.split("\n\n").map((paragraph) => <p>{paragraph}</p>)}
 
-  <h2>Education</h2>
-  <ul>
+  <h2>Affiliations</h2>
+  <div class="logo-row">
     {
-      profile.education.map((item) => (
-        <li>
-          <strong>
-            {item.degree} ({item.year})
-          </strong>
-          , {item.school}
-          <br />
-          <em>{item.detail}</em>
-        </li>
+      affiliations.map((item) => (
+        <a class="logo-card" href={item.href} target="_blank" rel="noopener noreferrer">
+          <img src={item.logo} alt={item.name} loading="lazy" />
+          <span>{item.name}</span>
+        </a>
       ))
     }
-  </ul>
+  </div>
 </BaseLayout>

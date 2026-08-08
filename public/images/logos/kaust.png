@@ -1,0 +1,919 @@
+ <!DOCTYPE HTML> <html lang="en" dir='ltr'> <head><script type="text/html" id="sf-tracking-consent-manager">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<style>
+#tracking-consent-dialog {position: fixed; z-index: 999; bottom: 0; left: 0; right: 0; background-color: rgba(0,0,0,0.8); color: white; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); ; align-items: center;}
+#tracking-consent-dialog p{margin:0; font-family: "Raleway", sans-serif;font-size: 14px; text-align: center; flex-grow: 1;}
+#consent-message {margin: 0; flex: 1; }
+#tracking-consent-dialog-accept {background-color: #ffffff; color: #3f3f3f;border: none; padding: 10px 20px; border-radius: 0px;cursor: pointer;margin-left: 20px;transition: background-color 0.3s;}
+#tracking-consent-dialog-accept:hover {background-color: #dd9851;color: #fff;}
+#tracking-consent-dialog-reject { background-color: #ffffff;color: #3f3f3f; border: none;padding: 10px 20px; border-radius: 0px;cursor: pointer;margin-left: 20px;transition: background-color 0.3s;}
+#tracking-consent-dialog-reject:hover {background-color: #dd9851; color: #fff;}
+#tracking-consent-dialog-a:hover {background-color: #dd9851; color: #fff;}	
+#track {color: #dd9851;  text-decoration: none;   font-weight: normal}
+#track:hover {color: #f89c3d;  text-decoration: none;   font-weight: normal}
+.ar { direction: 'rtl'; }
+#tracking-consent-dialog.ar p{font-family: 'Helvetica Neue LT Arabic' !important; }
+#tracking-consent-dialog.ar #tracking-consent-dialog-accept, #tracking-consent-dialog.ar #tracking-consent-dialog-reject {margin-right: 20px; margin-left: 0px;}
+span.ara, .ar span.en { display: none; }
+.ar span.ara { display: inline; }
+    </style>
+<div id="tracking-consent-dialog"> 
+       <p>
+		<span class="en">This website uses cookies to ensure ease of use, enhance functionality, and for analytical purposes. Visit our <a href="https://www.kaust.edu.sa/en/privacy-notice/website-users"  target="new" id="track">Privacy Notice</a> for more information.</span>
+		<span class="ara">يستخدم هذا الموقع ملفات تعريف الارتباط (الكوكيز) لضمان سهولة الاستخدام، وتعزيز الأداء، وتحليل حركة المرور على الموقع.
+            قم بزيارة  <a href="https://kaust.edu.sa/ar/privacy-notice/website-users"  target="new" id="track">إشعار الخصوصية</a> الخاص بنا لمزيد من المعلومات.</span>
+    <button type="button" onclick="TrackingConsentManager.updateUserConsent(true)" id="tracking-consent-dialog-accept" class="btn btn-default">
+		<span class="en">Accept all cookies</span>
+		<span class="ara">قبول جميع ملفات تعريف الارتباط</span>
+	</button>
+    <button type="button" onclick="TrackingConsentManager.updateUserConsent(false)" id="tracking-consent-dialog-reject" class="btn btn-default">
+		<span class="en">Accept only essential cookies</span>
+		<span class="ara">قبول ملفات تعريف الارتباط الأساسية فقط</span>
+	</button></p>
+</div>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WH8X0G7F1W"></script> 
+<script type="text/javascript">
+window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}
+let acceptButton = document.getElementById('tracking-consent-dialog-accept');
+let rejectButton = document.getElementById('tracking-consent-dialog-reject');
+acceptButton && acceptButton.addEventListener('click', function() {
+  loadGoogleAnalytics(true);
+});
+
+rejectButton && rejectButton.addEventListener('click', function() {
+  loadGoogleAnalytics(false);
+});
+
+function getCookie(name) {
+  let nameEQ = name + "=";
+  let ca = document.cookie.split(';');
+  for(let i=0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+  }
+  return null;
+}
+
+let trackingTriggered = false;
+function loadGoogleAnalytics(useCookies) {
+  gtag('js', new Date());
+  let consentValue = useCookies ? 'granted' : 'denied';
+  gtag('consent', trackingTriggered ? 'update' : 'default', {
+	  'ad_storage': consentValue,
+	  'ad_user_data': consentValue,
+	  'ad_personalization': consentValue,
+	  'analytics_storage': consentValue
+	});
+
+	gtag('config', 'G-WH8X0G7F1W');
+  trackingTriggered = true;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+	loadGoogleAnalytics(getCookie('sf-tracking-consent') === 'true');
+	if(location.pathname.toLowerCase().includes('/ar')) {
+		let observer = new MutationObserver(() => {
+            let el = document.getElementById('tracking-consent-dialog');
+            if (el) {
+                el.setAttribute('dir', 'rtl');
+                el.classList.add('ar');
+                observer.disconnect();
+            }
+        });
+
+        observer.observe(document.documentElement, { childList: true, subtree: true });
+	}
+});
+</script>
+</script><script type="text/javascript" src="/WebResource.axd?d=DzHrpQl5URXarFHAtrmzFl2jx0KwTQmONIcwX7NSxVsyaT98zbuJPnFus2_9ZoouJe7vmBW2e8xqqqltXRDTm0TMrHNT6rSVz4oUxNRp1ZARxm3TUwHXJzKCfQAD9SHa1iZCGMumW0PK-NXNXVlqSKYjQZPPTdEmogDRfDaXIl8dJkICKWowcgWFW-7dJkB60&amp;t=639137695720000000">
+
+</script>  <meta http-equiv="Content-type" content="text/html; charset=utf-8" /> <meta http-equiv="Expires" content="0" /> <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> <meta name="msapplication-config" content="none" /> <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> <meta name="description" /> <script src="/ResourcePackages/KAUSTMain/assets/dist/js/jquery-2.2.3.min.js"></script> <script src=/ResourcePackages/KAUSTMain/assets/dist/js/Scripts.js?package=KAUSTMain&amp;v=639217446200208459></script> <link href=/ResourcePackages/KAUSTMain/assets/dist/css/Styles.css?package=KAUSTMain&amp;v=639217446200208459 rel="stylesheet" /> <!--[if lte IE 8]>
+                <script src="//html5shiv.googlecode.com/svn/trunk/html5.js">//<![CDATA[//]]></script>
+                <script src=/~/ResourcePackages/KAUSTMain/assets/js/vendor/css3-mediaqueries.min.js">//<![CDATA[//]]></script>
+                <link rel="stylesheet" href="~/ResourcePackages/KAUSTMain/assets/css/ie/base.css"/>
+                <link rel="stylesheet" href="~/ResourcePackages/KAUSTMain/assets/css/ie/landing.css"/>
+                <link rel="stylesheet" href="~/ResourcePackages/KAUSTMain/assets/css/ie/jquery.reject.css"/>
+                <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript">//<![CDATA[//]]></script>
+                <script src="~/ResourcePackages/KAUSTMain/assets/js/ie/general.js">//<![CDATA[//]]></script>
+                <script src="~/ResourcePackages/KAUSTMain/assets/js/ie/landing.js">//<![CDATA[//]]></script>
+                <script src="~/ResourcePackages/KAUSTMain/assets/js/ie/jquery.reject.js">//<![CDATA[//]]></script>
+            <![endif]--> <link href=/ResourcePackages/KAUSTMain/assets/dist/css/sf-editor-reset.css?package=KAUSTMain&amp;v=639217446200208459 rel="stylesheet" /> <script src=/ResourcePackages/KAUSTMain/assets/dist/js/custom.js?package=KAUSTMain&amp;v=639217446200208459></script> <title>
+	404
+</title><meta property="og:title" content="404" /><meta property="og:url" content="https://www.kaust.edu.sa/error/404" /><meta property="og:type" content="website" /><meta property="og:site_name" content="KAUST" /><style type="text/css" media="all">.fa.fa-twitter{
+	font-family:sans-serif;
+}
+.fa.fa-twitter::before{
+	content:"𝕏"!important;
+	font-size:1.2em!important;
+        font-weight:bold!important;
+}</style><script type="text/javascript">
+
+//<![CDATA[
+var MSOWebPartPageFormName = 'aspnetForm';
+var g_presenceEnabled = true;
+var g_wsaEnabled = false;
+var g_wsaQoSEnabled = false;
+var g_wsaQoSDataPoints = [];
+var g_wsaLCID = 1033;
+var g_wsaListTemplateId = 850;
+var g_wsaSiteTemplateId = 'BLANKINTERNET#2';
+var _fV4UI=true;var _spPageContextInfo = {webServerRelativeUrl: "\u002fen", webAbsoluteUrl: "https:\u002f\u002fwww.kaust.edu.sa\u002fen", siteAbsoluteUrl: "https:\u002f\u002fwww.kaust.edu.sa", serverRequestPath: "\u002fen\u002fPages\u002fdefault.aspx", layoutsUrl: "_layouts\u002f15", webTitle: "Home", webTemplate: "53", tenantAppVersion: "0", isAppWeb: false, Has2019Era: true, webLogoUrl: "_layouts\u002f15\u002fimages\u002fsiteicon.png", webLanguage: 1033, currentLanguage: 1033, currentUICultureName: "en-US", currentCultureName: "en-US", clientServerTimeDelta: new Date("2023-02-28T10:09:21.5155972Z") - new Date(), siteClientTag: "472$$15.0.5519.1000", crossDomainPhotosEnabled:false, webUIVersion:15, webPermMasks:{High:16,Low:196673},pageListId:"{4c04bd22-c74f-42d2-9f45-c017c22495b3}",pageItemId:1, pagePersonalizationScope:1, alertsEnabled:true, customMarkupInCalculatedFieldDisabled: true, siteServerRelativeUrl: "\u002f", allowSilverlightPrompt:'True'};//]]>
+
+</script><meta name="Generator" content="Sitefinity 14.4.8152.0 DX" /><link rel="canonical" href="https://www.kaust.edu.sa/error/404" /><meta name="twitter:card" content="summary_large_image" /></head> <body> <!-- Google Tag Manager (noscript) --> <noscript> <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M53Q7H7"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe> </noscript> <!-- End Google Tag Manager (noscript) --> <style>
+        .RadDockZone:hover {
+            z-index: 9999 !important;
+        }
+    </style> <script src="/MainSiteAssets/scripts/init.js"></script> <div id="s4-workspace"> <div id="s4-bodyContainer" class=""> 
+<header id="Header_TBEA4ECA1004_Col00" class="sf_colsIn cf" data-sf-element="Container" data-placeholder-label="Header" style="background-color: rgb(255, 255, 255);">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VGNT1HSSCZ"></script><script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-VGNT1HSSCZ'); </script><div id="Header_TBEA4ECA1005_Col00" class="sf_colsIn container" data-sf-element="Container">
+    <!-- Logo -->
+ <h1>
+            <a href="/">
+                <img src="/ResourcePackages/KAUSTMain/assets/dist/images/kaust-logo.svg" class="logo" /><span
+                    class="logo-title"></span>
+               
+                
+
+
+
+
+
+
+
+
+    <!--  -->
+<script src="https://use.fontawesome.com/e67ee2a2a0.js"></script>
+            </a>
+        </h1>
+        <a href="#" class="menu-trigger">
+            Menu
+        </a>
+          <style>
+        /* Button styling */
+        .transparent-button {
+            background-color: transparent; /* Makes the button transparent */
+            border: 2px solid #007bff; /* Blue border */
+            color: #007bff; /* Blue text */
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Hover effect */
+        .transparent-button:hover {
+            background-color: #007bff; /* Blue background on hover */
+            color: white; /* White text on hover */
+        }
+    </style>
+</div>
+<nav id="Header_TBEA4ECA1006_Col00" class="sf_colsIn" data-sf-element="Container" data-placeholder-label="Navigation"><div id="Header_TBEA4ECA1008_Col00" class="sf_colsIn panel" data-sf-element="Container">
+    <!-- Navigation -->
+<ul class="menu cf">
+    <li class="orange has-submenu">
+        <a href="/en/study" class="section">Study</a>
+        <div class="submenu-wrap">
+            <div class="submenu cf">
+                <a href="/en/study" class="mobile-tablet">
+                    <h2>Study</h2>
+                </a>
+                <!-- Only for Mobile Tablet view -->
+                <a href="/ar/study/student-central" style="
+  display: inline-flex;
+  align-items: right;
+  gap: 6px;
+  text-decoration: none;
+  color: #c97d10;
+  font-family: 'Raleway', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  float: right;
+  padding: 20px 12% 0 0;
+  display: none;
+">
+
+  <svg width="21" height="21" viewBox="0 0 24 24" fill="none"
+       stroke="#c97d10" stroke-width="1.5"
+       stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="4" width="20" height="16" rx="2" ry="2"/>
+    <circle cx="8" cy="10" r="2"/>
+    <path d="M5 17c0-2 1.5-3 3-3s3 1 3 3"/>
+    <line x1="14" y1="9" x2="19" y2="9"/>
+    <line x1="14" y1="13" x2="19" y2="13"/>
+  </svg>
+
+  Student Central
+
+</a>
+                <h2 class="story">KAUST offers the following degree programs</h2>
+                
+                <div class="col">
+                    <ul>
+                       
+                        <li><a href="/en/study/masters-program">Master's Program</a>
+                        </li>
+                        <li><a href="/en/study/phd-program">Ph.D. Program</a>
+                        </li>
+                    </ul>
+  
+                    <h2 class="submenu-head">Technology Innovation and Entrepreneurship  </h2>
+  
+                    <ul>
+                        <li><a href="https://tie.kaust.edu.sa/" target="_blank"> TIE Masters </a>
+                        
+                        </li>
+                    </ul>
+  
+  
+  
+                    <h2 class="submenu-head">Biological and Environmental Science and Engineering</h2>
+                    <ul>
+                        
+                        <li><a href="/en/study/division-programs#ense">Environmental Science and Eng.
+                                (EnSE)</a>
+                        </li>
+                        <li><a href="/en/study/division-programs#mars">Marine Science (MarS)</a>
+                        </li>
+                        <li><a href="/en/study/division-programs#plant-science">Plant Science (PS)</a>
+                        </li>
+                    </ul>
+                    
+                    <h2 class="submenu-head">Biomedical Sciences</h2>
+                    <ul>
+                        <li><a href="https://www.kaust.edu.sa/en/study/biomed/bioscience">Bioscience (B)</a>
+                        </li>
+                        <li><a href="https://www.kaust.edu.sa/en/study/biomed/bioengineering">Bioengineering (BioE)</a>
+                        </li>
+                    </ul>
+  
+                    
+  
+                    
+    
+    
+                </div>
+                <div class="col">
+                    
+                    <h2 class="submenu-head"> Computer, Electrical and Mathematical Science and Engineering
+                    </h2>
+  
+                    <ul>
+                        <li><a href="/en/study/division-programs#amcs">Applied Mathematics and Computational
+                                Science (AMCS)</a>
+                        </li>
+                        <li><a href="/en/study/division-programs#cs">Computer Science (CS)</a>
+                        </li>
+                        <li><a href="/en/study/division-programs#ee">Electrical and Computer Engineering
+                                (ECE)</a>
+                        </li>
+                        <li><a href="/en/study/division-programs#stat">Statistics (STAT)</a>
+                        </li>
+                    </ul>
+  
+                    <h2 class="submenu-head">Physical Science and Engineering </h2>
+  
+                    <ul>
+    
+                        <li><a href="/en/study/division-programs#ce">Chemical Engineering (CE)</a>
+                        </li>
+                        <li><a href="/en/study/division-programs#chem">Chemistry (Chem)</a>
+                        </li>
+                        <li><a href="/en/study/division-programs#esse">Earth System Science and Engineering (ESSE)</a>
+                        </li>
+                        <li><a href="/en/study/division-programs#mseap">Materials Science and Engineering and Applied Physics (MSEAP)</a>
+                        </li>
+                        <li><a href="/en/study/division-programs#me">Mechanical Engineering (ME)</a>
+                        </li>
+                    </ul>
+  
+  
+                </div>
+                
+                 <div class="col">
+                     
+                     <!--<h2 class="submenu-head">Academic Office</h2>-->
+  
+                    <ul>
+                        <li><a href="https://courses.kaust.edu.sa/" target="_blank">Courses</a>
+                        </li>
+                        <li><a href="https://vsrp.kaust.edu.sa/" target="_blank">Internships</a>
+                        </li>
+                        <li><a href="https://gds.kaust.edu.sa/" target="_blank">Student Affairs</a>
+                        </li>
+                        <li><a href="https://registrar.kaust.edu.sa/" target="_blank">Registrar</a>
+                        </li>
+                        <li><a href="https://registrar.kaust.edu.sa/calendars" target="_blank">Academic
+                                Calendar</a>
+                        </li>
+                        <li><a href="https://www.kaust.edu.sa/docs/kaustlibraries/documents/downloads/kaust_student-handbook_25_26.pdf" target="_blank">Student
+                                Handbook</a>
+                        </li>
+                        
+                        <li><a href="https://facultylife.kaust.edu.sa/" target="_blank">Faculty Affairs</a>
+                        </li>
+                        <li><a href="https://alumni.kaust.edu.sa/" target="_blank">Alumni Affairs</a>
+                        </li>
+                        <li><a href="https://library.kaust.edu.sa/" target="_blank">KAUST Library</a>
+                        </li>
+                        <li><a href="https://enrichment.kaust.edu.sa/home/" target="_blank">Enrichment
+                                Programs</a>
+                        </li>
+                        
+                        
+  
+                    </ul>
+  
+  
+                    <h2 class="submenu-head">Expanding Knowledge</h2>
+  
+                    <ul>
+                        <li><a href="/en/study/faculty">KAUST Faculty</a>
+                        </li>
+  
+                        <li><a href="https://www.kaust.edu.sa/en/study/commencement" >Commencement</a>
+                        </li>
+                    </ul>
+  
+                    <p><a href="https://admissions.kaust.edu.sa" target="_blank" class="menu-button">Apply
+                            to KAUST</a>
+                    </p>
+  
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="turquoise has-submenu">
+        <a href="/en/research" class="section">Research</a>
+        <div class="submenu-wrap">
+            <div class="submenu cf">
+                <a href="/en/research" class="mobile-tablet">
+                    <h2>Research</h2>
+                </a>
+                <!-- Only for Mobile Tablet view -->
+                <h2 class="story">KAUST advances science and technology through distinctive and
+                    collaborative
+                    research.</h2>
+  
+                <div class="col">
+                    <h2 class="submenu-head">Centers of Excellence</h2>
+    
+                    <ul>
+    
+                        <li><a href="https://www.kaust.edu.sa/en/research/generative-ai">Generative AI </a></li>
+                        <li><a href="https://www.kaust.edu.sa/en/research/renewable-energy-and-storage-technologies/">Renewable Energy and Storage Technologies </a></li>
+                        <li><a href="https://www.kaust.edu.sa/en/research/smart-health">Smart Health</a></li>
+                        <li><a href="https://www.kaust.edu.sa/en/research/sustainable-food-security">Sustainable Food Security </a></li>
+                         
+                    </ul>
+                    
+                    <h2 class="submenu-head">Research Support</h2>
+                    <ul>
+                        <li><a href="/en/research/support#lem">Lab Equipment Management (LEM)</a></li>
+                        <li><a href="/en/research/support#ps">Postdoctoral Support</a></li>
+                        <!-- 
+                        <li><a href="/en/research/support#aws">Research Publication Services (RPS)</a></li>
+                        -->
+                    </ul>
+                </div>
+  
+                <div class="col">
+                    <h2 class="submenu-head">Research in Academic Divisions</h2>
+                    <ul>
+                        <li><a href="https://bese.kaust.edu.sa/" target="_blank">Biological and Environmental
+                                Science and
+                                Engineering</a>
+                        </li>
+                        <li><a href="https://www.kaust.edu.sa/en/study/biomed">Biomedical Sciences Division</a>
+                        </li>
+                        <li><a href="https://cemse.kaust.edu.sa/" target="_blank">Computer, Electrical and
+                                Mathematical
+                                Science and Engineering</a>
+                        </li>
+                        <li><a href="https://pse.kaust.edu.sa/" target="_blank">Physical Science and Engineering
+                                Division</a>
+                        </li>
+                    </ul>
+  
+                    
+  
+                    <h2 class="submenu-head">Research Funding</h2>
+                    <ul>
+                        <li><a href="https://rfs.kaust.edu.sa/" target="_blank">Research Funding and Services</a></li>
+                        <li><a href="https://rtp.kaust.edu.sa/" target="_blank">Research Translation &
+                                Partnership
+                                (RTP)</a></li>
+                        <li> </li>
+                        <li> </li>
+                    </ul>
+  
+  
+                </div>
+  
+                <div class="col">
+                    <h2 class="submenu-head">Research Facilities</h2>
+                    <ul>
+                      <!-- <li><a href="/en/research/shaheen">Shaheen III Supercomputer</a></li>     -->
+                  <li><a href="/en/research/research-platforms">Research Platforms</a></li>
+       <li><a href="/en/research/core-labs">Core Labs</a></li>
+                        
+                    </ul>
+  
+                    <h2 class="submenu-head">More on Research</h2>
+                    <ul>
+                        <li><a href="/en/about/administration/Office-of-the-Vice-President-for-Research">VP
+                                for
+                                Research</a></li>
+                        
+                        <li><a href="/en/research/latest">Latest Publications</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="yellow has-submenu">
+        <a href="/en/innovate" class="section">Innovate</a>
+        <div class="submenu-wrap">
+            <div class="submenu cf">
+                <a href="/en/innovate" class="mobile-tablet">
+                    <h2>Connecting Research & Industry</h2>
+                </a>
+                <!-- Only for Mobile Tablet view -->
+                <h2 class="story">From research to impact, building the Kingdom’s
+  future through innovation and partnerships</h2>
+  
+                <div class="col-two">
+                    <h2 class="submenu-head">The National Transformation Institute (NTI)</h2>
+                    <ul>
+                        <li><a href="/en/innovate#about-nti">About the NTI</a>
+                        </li>
+                        <li><a href="/en/innovate#national-projects">National Projects</a>
+                        </li>
+                        <li><a href="https://www.kaust.edu.sa/en/innovate#partnerships">Partnerships 
+                                </a>
+                        </li>
+  
+                    </ul>
+                </div>
+                <div class="col-two-last">
+                    <h2 class="submenu-head">&nbsp;</h2>
+                    <ul>
+                        <li><a href="/en/innovate#commercialization">Commercialization and Consultancy</a>
+                        </li>
+                        <li><a href="/en/innovate#innovation-ecosystem">Innovation Ecosystem </a>
+                        </li>
+                        <li><a href="/en/innovate#innovation-hubs">Innovation Hubs</a>
+                        </li>
+      
+        
+      
+      
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="green has-submenu">
+        <a href="/en/live" class="section">Live</a>
+        <div class="submenu-wrap">
+            <div class="submenu cf">
+                <a href="/en/live" class="mobile-tablet">
+                    <h2>Live</h2>
+                </a>
+                <!-- Only for Mobile Tablet view -->
+                <h2 class="story">KAUST provides its community members with both rewarding career
+                    opportunities and
+                    a wide range of community services to make life on campus enjoyable</h2>
+  
+                <div class="col">
+  
+                    <h2 class="submenu-head">Live at KAUST</h2>
+                    <ul>
+                        <li><a href="https://communitylife.kaust.edu.sa/" target="_blank">Community Life</a>
+                        </li>
+                        <li><a href="https://kaust.edu.sa/en/live/school-and-daycare/kaust-school"
+                                target="_blank">The KAUST Schools</a></li>
+  
+  
+                    </ul>
+  
+                </div>
+                <div class="col">
+                    <h2 class="submenu-head">&nbsp;</h2>
+                    <ul>
+  
+                        <li><a href="https://www.kaust.edu.sa/en/live/services/health-and-wellness">KAUST
+                                Health</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="col">
+  
+  
+                </div>
+                <div class="col">
+                    <p><a href="/en/live/moving-to-kaust" class="menu-button">Moving to KAUST</a></p>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="secondary has-submenu blue">
+        <a href="/en/about" class="section">About</a>
+        <div class="submenu-wrap">
+            <div class="submenu cf">
+                <a href="/en/about" class="mobile-tablet">
+                    <h2>About KAUST</h2>
+                </a>
+                <!-- Only for Mobile Tablet view -->
+                <h2 class="story">KAUST is a graduate research university of science and technology renowned
+                    by
+                    global benchmarks</h2>
+  
+                <div class="col">
+                    <h2 class="submenu-head">KAUST Overview</h2>
+                        <ul>
+                            <li><a href="/en/about/">About KAUST</a></li>
+                            <li><a href="/en/about/our-strategy">Our Strategy</a></li>
+                            <li><a href="/en/about/our-impact">Our Impacts</a></li>
+                            <li><a href="/en/about/administration/board-trustees">Board of Trustees</a></li>
+                            <li><a href="/en/about/administration/president"> Office of the President & CAO</a></li>
+                            <li><a
+                                    href="/en/about/administration/Office-of-the-Vice-President-for-Research">Office of the Senior Vice President, Research</a></li>
+                            
+                            <li><a
+                                    href="https://www.kaust.edu.sa/en/about/administration/office-of-the-chief-administration-officer/">Office of the Executive Vice President</a></li>
+                            
+                             <li><a
+                                    href="https://www.kaust.edu.sa/en/about/policy-institute/">The Policy Institute at KAUST</a></li>
+                        </ul>
+                    <h2 class="submenu-head">Supporting the Kingdom's Vision</h2>
+                        <ul>
+                        
+                            <li><a
+                                    href="https://www.kaust.edu.sa/en/innovate#national-projects">Innovation
+                                    and Economic Development</a>
+                            </li>
+  
+                        </ul>
+  
+                        
+                </div>
+                <div class="col">
+  
+                    <h2 class="submenu-head">Careers</h2>
+                    <ul>
+                   
+                        <li><a href="/en/about/faculty-positions">Faculty Positions</a>
+                        </li>
+                        <li><a href="/en/about/ibn-rushd-postdoctoral-fellow-positions">Ibn Rushd
+                                Program</a>
+                        </li>
+                        <li><a href="/en/about/postdoc-researcher-positions">Researcher Positions</a>
+                        </li>
+       <li><a href="https://kgfp.kaust.edu.sa" target="_blank">Global Postdoctoral Fellowship</a>
+                        </li>
+                        
+                    </ul>
+  
+                    <h2 class="submenu-head">Explore</h2>
+                        <ul>
+                            <li><a href="/en/about/museum-of-science-technology-in-islam">KAUST Museum</a></li>
+                            <li><a href="/en/about/media-relations">Media Relations</a></li>
+                            <li><a href="/en/about/sustainability">KAUST Sustainability</a></li>
+                             
+                            <li><a href="https://maps.kaust.edu.sa/maps/" target="_blank">KAUST Interactive map</a></li>
+                       
+                            <li><a href="https://www.kaust.edu.sa/virtual-tour">KAUST Virtual Tour</a></li>
+                            <li><a href="/en/about/photos">KAUST Photos Galleries </a></li>
+                          <!--  <li><a href="/en/about/videos">KAUST Video Gallery</a></li>-->
+                        </ul>
+  
+                </div>
+                <div class="col">
+                    <p><a href="/en/about/openings" class="menu-button">Search for Jobs</a></p>
+                    <p><a href="/en/about/faculty-positions" class="menu-button">Faculty Positions</a></p>
+                    <p><a href="/en/about/vision" class="menu-button">Our Vision</a></p>
+                </div>
+            </div>
+        </div>
+    </li>
+    <!-- <li class="secondary blue">
+  <a href="https://discovery.kaust.edu.sa/en" target="_blank" class="section">Discovery</a>
+  </li> -->
+    <li class="secondary has-submenu blue">
+        <a href="/en/news" class="section">News</a>
+        <div class="submenu-wrap">
+            <div class="submenu cf">
+                <a href="/en/news" class="mobile-tablet">
+                    <h2>News</h2>
+                </a>
+                <!-- Only for Mobile Tablet view -->
+                <h2 class="story">Explore the latest Research and Events happening at KAUST</h2>
+  
+                <div class="col">
+                    <h2 class="submenu-head">KAUST News</h2>
+  
+                    <ul>
+                        <li><a href="/en/news">Latest Stories</a></li>
+  
+                       
+                    </ul>
+  
+                </div>
+                <div class="col">
+                    <h2 class="submenu-head">&nbsp;</h2>
+                    <ul>
+                        <li><a href="https://kaustcentral-eventscalendar-userwebsite.cfapps.eu20.hana.ondemand.com/dashboard" target="_blank">KAUST Events</a>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h2 class="submenu-head">The latest in Research News</h2>
+                    <p><a href="https://discovery.kaust.edu.sa/en" target="_blank" class="menu-button">KAUST
+                            Discovery</a> </p>
+                </div>
+            </div>
+        </div>
+    </li>
+    <a href="https://admissions.kaust.edu.sa" target="_blank"><span class="apply-kaust">Applying to
+            KAUST</span></a>
+    <a href="/en/visit"><span class="apply-kaust">Visit KAUST</span></a>
+  </ul>
+<div id="Header_TBEA4ECA1010_Col00" class="sf_colsIn tool-wrap" data-sf-element="Container" data-placeholder-label="Tool wrap"><ul id="Header_TBEA4ECA1011_Col00" class="sf_colsIn tools" data-sf-element="Container" data-placeholder-label="List"><li id="Header_TBEA4ECA1013_Col00" class="sf_colsIn" data-sf-element="Container" data-placeholder-label="List item">
+
+
+
+
+</li><li id="Header_TBEA4ECA1014_Col00" class="sf_colsIn" data-sf-element="Container" data-placeholder-label="List item">
+    <!-- Search trigger -->
+<a href="#" class="search-trigger icon ksticon-search-find">
+                        </a>
+</li>
+</ul>
+    <!-- Search -->
+<div class="search">
+                    <div class="form">
+                        <gcse:search></gcse:search>
+                    </div>
+                </div>
+</div>
+
+</div>
+
+</nav>
+</header>
+
+ <a href="#0" class="cd-top hidden-mobile hidden-tab">Top</a> <div data-name="ContentPlaceHolderMain"> 
+<div id="Content_T0083AE72004_Col00" class="sf_colsIn category cf" data-sf-element="Container" style="background-color: rgb(255, 255, 255);"><section id="Content_T0083AE72006_Col00" class="sf_colsIn container" data-sf-element="Container" data-placeholder-label="Section">
+
+<div aria-label="Full path to the current page" id="breadcrumbs" class="ui large breadcrumb">
+
+                <a class="section" href="/">Home </a>
+                <i class="ksticon-crumb-r"></i>
+            <div class="active section" data-link-url="/error/404">404</div>
+</div>
+
+
+
+    <!--  -->
+<div class="extended"><div class="container page"><h1>Page Could Not Be Found</h1>
+  <p>The page you are looking for could not be found.<br></p>
+    <h4 dir="rtl" style="text-align:right;"><br></h4>
+    <h4 dir="rtl" style="text-align:right;">&nbsp;&nbsp; نعتذر منك، لقد وصلت إلى هذه الصفحة عبر رابط خاطئ&nbsp;</h4></div></div>
+</section>
+</div>
+
+    <!-- Content -->
+
+<script type="text/javascript">
+addExtendedClass();
+          
+</script>
+ </div> 
+
+    <!-- Footer -->
+<footer class="cf">
+    <!--<link href="#file.myfontastic.com/TU3H5EGeyFPMyAtdndMmVd/icons.css" rel="stylesheet">-->
+    <div class="container">
+        <div class="col">
+
+            <div class="quote">
+                <span class="quote-marks">”</span>
+                <q>KAUST shall be a beacon for peace, hope and reconciliation, and shall serve the people of the Kingdom and the world.</q>
+
+            </div>
+            <div class="king">
+                <p class="name">
+                    King Abdullah bin Abdulaziz Al Saud, 1924 – 2015</span>
+                </p>
+            </div>
+            <br />
+            <div class="social" style="float:left;margin:20px 0 0 20px;">
+                <h3>Follow us</h3>
+                <ul class="social">
+                  <li>
+                        <a href="https://x.com/KAUST_News" target="_blank" class="fa fa-twitter"></a>
+                    </li>
+                 
+                  <li>
+                        <a href="https://www.linkedin.com/company/kaust" target="_blank" class="fa fa-linkedin"></a>
+                    </li>
+                  <li>
+                        <a href="https://www.instagram.com/kaustofficial/" target="_blank" class="fa fa-instagram" aria-hidden="true"></a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/KAUSTOfficial" target="_blank" class="fa fa-facebook"></a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/user/KAUSTvideo" target="_blank" class="fa fa-youtube"></a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="col hidden-mobile">
+
+            <h3>Study</h3>
+            <ul>
+                <li>
+                    <a href="https://admissions.kaust.edu.sa/" target="_blank">Apply to KAUST</a>
+                </li>
+                <li>
+                    <a href="/en/study/masters-program">M.S. Degree</a>
+                </li>
+                <li>
+                    <a href="/en/study/phd-program">Ph.D. Degree</a>
+                </li>
+                
+                <li>
+                    <a href="https://bese.kaust.edu.sa" target="_blank">BESE Division</a>
+                </li>
+                <li>
+                    <a href="https://www.kaust.edu.sa/en/study/biomed" target="_blank">BioMed Division</a>
+                </li>
+                <li>
+                    <a href="https://cemse.kaust.edu.sa" target="_blank">CEMSE Division</a>
+                </li>
+                <li>
+                    <a href="https://pse.kaust.edu.sa" target="_blank">PSE Division</a>
+                </li>
+                <li>
+                    <a href="https://www.kaust.edu.sa/en/research/research-platforms">Research Platforms</a>
+                </li>
+                <li>
+                    <a href="https://corelabs.kaust.edu.sa/" target="_blank">Core Labs</a>
+                </li>
+            </ul>
+
+            <h3>Living in KAUST</h3>
+            <ul>
+                <li>
+                    <a href="/en/live/community-life">Our Community</a>
+                </li>
+                <li>
+                    <a href="/en/live/school-and-daycare">School & Daycare</a>
+                </li>
+                <li>
+                    <a href="/en/live/services">Services</a>
+                </li>
+                <li>
+                    <a href="/en/live/Accommodation">Accommodation</a>
+                </li>
+
+            </ul>
+
+
+        </div>
+
+        <div class="col hidden-mobile">
+            <h3>Student Affairs</h3>
+            <ul>
+                <li>
+                    <a href="https://registrar.kaust.edu.sa/" target="_blank">Registrar’s Office</a>
+                </li>
+                <li>
+                    <a href="https://gds.kaust.edu.sa/" target="_blank">Student Affairs office</a>
+                </li>
+            </ul>
+
+            <h3>Expanding Knowledge</h3>
+            <ul>
+                <li>
+                    <a href="/en/study/enrichment-program-office">Enrichment Program Office</a>
+                </li>
+                <li>
+                    <a href="https://alumni.kaust.edu.sa/">Alumni Affairs</a>
+                </li>
+                <li>
+                    <a href="https://library.kaust.edu.sa/" target="_blank">KAUST Library</a>
+                </li>
+            </ul>
+            <h3>Latest</h3>
+            <ul>
+                <li>
+                    <a href="/en/news">Latest Stories</a>
+                </li>
+                <li>
+                    <a href="https://www.kaust.edu.sa/en/about/kaust-impact">KAUST Impact</a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="col">
+
+            <h3 class="hidden-mobile">About KAUST</h3>
+            <ul class="hidden-mobile">
+                <li>
+                    <a href="/en/about">History</a>
+                </li>
+               
+                <li><a href="https://maps.kaust.edu.sa/maps/" target="_blank">Interactive map</a></li>
+                </li>
+                <li>
+                    <a href="/en/about/administration">Administration</a>
+                </li>
+                <li>
+                    <a href="/en/about/green-campus">Sustainability</a>
+                </li>
+                <li>
+                    <a href="https://museum.kaust.edu.sa/" target="_blank">Museum</a>
+                </li>
+                <li>
+                    <a href="/en/research">Research </a>
+                </li>
+                <li>
+                    <a href="/en/innovate">Innovation</a>
+                </li>
+                <li>
+                    <a href="/en/study/faculty">Faculty</a>
+                </li>
+                <li>
+                    <a href="/en/about/openings">Careers</a>
+                </li>
+                <li>
+                    <a href="/en/about/photos">Photo Galleries</a>
+                </li>
+                <li>
+                    <a href="/en/about/media-relations">Media Relations</a>
+                </li>
+                
+              <li>
+                      <a href="/whistleblowing/">Whistleblowing<a> </li>
+
+            </ul>
+
+        </div>
+    </div>
+
+
+    <div class="base">
+        <div class="container footer-end">
+            <p>
+                ©
+                <script language="JavaScript" type="text/javascript">
+                    document.write((new Date()).getFullYear());
+                </script> King Abdullah University of Science and Technology. All rights reserved.
+            </p>
+                  <ul style="margin:24px 0;">
+                  <li>
+                    <a href="/en/privacy-policy/website-users">Terms of Use</a>
+                </li>
+                  <li>
+                    <a href="/en/privacy-policy">Privacy Policy</a>
+                </li>
+                      <li>
+                    <a href="/en/privacy-policy/website-users">Cookie Notice</a>
+                </li>
+                  
+                <li>
+                    <a href="/en/contact">Contact</a>
+                </li>
+
+                
+            </ul>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+  
+
+ <span id="DeltaPlaceHolderUtilityContent"></span> </div> </div> <script src="/Frontend-Assembly/Telerik.Sitefinity.Frontend.Navigation/Mvc/Scripts/LanguageSelector/language-selector.js?package=KAUSTMain&amp;v=MTQuNC44MTUyLjA%3d&amp;v=639217446200208459" type="text/javascript"></script><script src="/ResourcePackages/KAUSTMain/MVC/Scripts/LanguageSelector/detailItemTranslations.js?package=KAUSTMain&amp;v=639217446200208459" type="text/javascript"></script><script src="/Frontend-Assembly/Telerik.Sitefinity.Frontend.Navigation/Mvc/Scripts/LanguageSelector/language-selector.js?package=KAUSTMain&amp;v=MTQuNC44MTUyLjA%3d" type="text/javascript"></script><script src="/ResourcePackages/KAUSTMain/MVC/Scripts/LanguageSelector/detailItemTranslations.js" type="text/javascript"></script><script type="application/json" id="PersonalizationTracker">
+	{"IsPagePersonalizationTarget":false,"IsUrlPersonalizationTarget":false,"PageId":"1bdcae59-cacf-4dc7-af96-06f2e83658f1"}
+</script><script type="text/javascript" src="/WebResource.axd?d=NjxTqR2bqTw1rewxxlkHPtjAKEP5SMAzIIP_eK__LJHz2H0fkEZQcfKwgDOiYnEv8MXFyguren20O4_T1qPW5zu34q-i59zBmek2tPafL-R2Sy-ctAos9u_DlkFt1jrUoHdNj9YFr_AZmU3EG9M7EwNEL7xK4L0qfNUdDQj6EWQitc4Ds93i96xr2EIDArg3YgWJWcUtpuW-RaA2E06H3i6S2V5Pg4ZPMDBjJEV15ao1&amp;t=639137696620000000">
+
+</script> <script>
+        document.querySelectorAll(".swiper-slide").forEach(elmt => {
+            elmt.style.opacity = 1;
+        });
+
+    </script> </body> </html>
