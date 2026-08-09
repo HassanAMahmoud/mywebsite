@@ -102,14 +102,16 @@ export const projects: Project[] = [
     awards: [],
     videos: [
       {
-        title: "Video S1 — Crack-Based Wireless Strain Sensor",
+        title: "Portable VNA Readout of a Flexible Crack-Based RFID Coil",
         url: "/videos/crack-s1.mp4",
-        caption: "Supplementary video from the Advanced Science RFID strain sensor work.",
+        caption:
+          "Handheld S11 measurement of a flexible crack-based RFID coil sensor using a portable vector network analyzer.",
       },
       {
-        title: "Video S2 — Crack-Based Wireless Strain Sensor",
+        title: "Near-Field Interrogation of a Crack-Based Wireless Strain Sensor",
         url: "/videos/video-crack-s2.mp4",
-        caption: "Supplementary video from the Advanced Science RFID strain sensor work.",
+        caption:
+          "Laboratory near-field probing of a crack-based wireless strain sensor with a vector network analyzer.",
       },
     ],
   },
