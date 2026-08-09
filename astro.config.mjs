@@ -4,7 +4,7 @@ import { defineConfig } from "astro/config";
 // https://astro.build/config
 export default defineConfig({
   output: "static",
-  site: "https://hassan-mahmoud.netlify.app",
+  site: "https://hassan-mahmoud.com",
   redirects: {
     "/projects": "/research",
     "/projects/printable-near-field-strain-sensors":
