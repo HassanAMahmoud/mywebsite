@@ -149,6 +149,15 @@ export const journalPublications: Publication[] = [
 
 export const underReview: Publication[] = [
   {
+    authors:
+      "R. Zhagypar, O. Khalifa, H. A. Mahmoud, A. Rongoni, N. Kouzayha, G. Lubineau, A. Alloum, W. Doré, T. Y. Al-Naffouri",
+    title:
+      "When Meaning Controls the Network: Event-Driven Semantic Communication at the Edge",
+    venue: "Under review — IEEE ComSoc Student Competition",
+    year: "2025",
+    status: "under-review",
+  },
+  {
     authors: "N. Divakaran, Y. Kara, H. A. Mahmoud, E. Hill, G. Lubineau",
     title:
       "Development of a Wearable and Sensitive PDMS-based Capacitive Strain Sensor for Sign Language Recognition",
@@ -223,16 +232,6 @@ export const proceedings: Publication[] = [
     image: "/images/pubs/advanced-e-tattoo-spie.png",
   },
   {
-    authors: "H. A. Mahmoud, G. Lubineau",
-    title:
-      "Flexible Temperature Sensor using Laser Induced Graphene (LIG) Based on Processing-Controlled Seebeck Contrast",
-    venue: "SPIE Smart Structures + NDE",
-    year: "2025",
-    doi: "https://doi.org/10.1117/12.3050755",
-    status: "proceedings",
-    image: "/images/pubs/lig-temperature-spie.png",
-  },
-  {
     authors: "H. A. Mahmoud, H. Nesser, G. Lubineau",
     title:
       "Integrated Piezoresistivity and Frequency Modulation for High Sensitivity Printed Capacitive Strain Sensing",
@@ -291,6 +290,8 @@ export const patents: Publication[] = [
     venue: "Provisional U.S. Application (Filed) — Docket No. 0338-855/2026-180-01",
     year: "2026",
     status: "patent",
+    image: "/images/pubs/embedded-wireless-curing-monitoring.png",
+    imageFit: "contain",
   },
   {
     authors: "A. Wagih, H. Ejaz, H. A. Mahmoud, G. Lubineau",
@@ -298,13 +299,18 @@ export const patents: Publication[] = [
     venue: "Provisional U.S. Application (Filed) — Docket No. 0338-843/2026-148-01",
     year: "2026",
     status: "patent",
+    image: "/images/pubs/gfrp-optical-transillumination.png",
+    imageFit: "contain",
   },
   {
     authors: "H. A. Mahmoud, N. Jaber, G. Lubineau",
-    title: "Wireless Capacitive Sensor for Low Frequency Vibrations",
+    title:
+      "Seismic Sensors Employing Electric Fields for Detecting Low Frequency Vibrations",
     venue: "Provisional U.S. Application (Filed)",
     year: "2025",
     status: "patent",
+    image: "/images/pubs/wireless-capacitive-low-freq-vibrations.png",
+    imageFit: "contain",
   },
   {
     authors:
@@ -314,6 +320,8 @@ export const patents: Publication[] = [
     venue: "Provisional U.S. Application (Filed) — November 15, 2025",
     year: "2025",
     status: "patent",
+    image: "/images/pubs/capacitive-strain-iot-device.png",
+    imageFit: "contain",
   },
   {
     authors:
@@ -322,6 +330,8 @@ export const patents: Publication[] = [
     venue: "Provisional U.S. Application (Filed) — November 15, 2025",
     year: "2025",
     status: "patent",
+    image: "/images/pubs/data-aggregator-iot.png",
+    imageFit: "contain",
   },
   {
     authors: "N. Divakaran, H. A. Mahmoud, G. Lubineau",
@@ -330,6 +340,8 @@ export const patents: Publication[] = [
     venue: "Provisional U.S. Application (Filed) — No. 2026-029",
     year: "2025",
     status: "patent",
+    image: "/images/pubs/pdms-mwcnt-piezoresistive-ink.png",
+    imageFit: "contain",
   },
   {
     authors: "H. A. Mahmoud, G. Lubineau",
@@ -338,6 +350,8 @@ export const patents: Publication[] = [
     venue: "Provisional U.S. Application (Filed) — No. 63/725,625",
     year: "2024",
     status: "patent",
+    image: "/images/pubs/non-uniform-ide-capacitive.png",
+    imageFit: "contain",
   },
   {
     authors: "A. Wagih, H. A. Mahmoud, R. Tao, G. Lubineau",
@@ -345,6 +359,8 @@ export const patents: Publication[] = [
     venue: "Provisional U.S. Application (Filed)",
     year: "2022",
     status: "patent",
+    image: "/images/pubs/toughening-thermoplastic-tapes.png",
+    imageFit: "contain",
   },
 ];
 

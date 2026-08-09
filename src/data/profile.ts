@@ -2,7 +2,7 @@ export const profile = {
   name: "Hassan A. Mahmoud",
   title: "Postdoctoral Fellow · MCEM Lab, KAUST",
   headline:
-    "Architected material mechanics, hands-on fabrication, and computational modeling for smart sensing and composite structures",
+    "Flexible and wireless sensing, event-driven edge AI for SHM, and geometry-driven mechanics for smart composite structures",
   affiliation:
     "Mechanics of Composites for Energy and Mobility (MCEM), King Abdullah University of Science and Technology",
   location: "Thuwal, Saudi Arabia",
@@ -19,19 +19,19 @@ export const profile = {
     researchPdf: "/cv/Hassan-Mahmoud-Research-Work.pdf",
   },
   interests: [
-    "Geometry-driven mechanics of architected materials and composites",
-    "Flexible and printable wireless sensors for structural health monitoring",
-    "Fabricate–test–model workflows (3D printing, laser/waterjet, microfabrication)",
-    "In-situ characterization (X-ray CT/synchrotron, DIC/DVC)",
-    "Fracture, fatigue, and toughness tailoring of bonded joints",
-    "IoT-enabled sensing for energy and composite infrastructure",
+    "Flexible, printable, and wireless sensors for structural health monitoring",
+    "Smart materials and multifunctional sensing platforms",
+    "Event-driven sensing, edge AI, and low-power IoT systems",
+    "Wearable electronics and human–machine interfaces",
+    "Mechanics of composites, fracture, and bonded joints",
+    "Fabrication, characterization, and modeling of smart structures",
   ],
-  about: `Hello! I am Hassan A. Mahmoud, a Postdoctoral Fellow in the Mechanics of Composites for Energy and Mobility (MCEM) Lab at King Abdullah University of Science and Technology (KAUST). I work at the intersection of architected material mechanics, hands-on fabrication, and computational modeling — closing the loop from geometry-driven design to fabrication, mechanical testing, and finite-element prediction.`,
+  about: `Hello! I am Hassan A. Mahmoud, a Postdoctoral Fellow in the Mechanics of Composites for Energy and Mobility (MCEM) Lab at King Abdullah University of Science and Technology (KAUST). My research develops flexible, printable, and wireless sensors for structural health monitoring, together with event-driven edge-AI systems that make sensing more power efficient—bridging materials, device fabrication, and intelligent readout for smart composite structures.`,
   bio: `I completed my PhD in Mechanical Engineering at KAUST (2025) with a dissertation on ultra-thin, wireless, and flexible sensors for smart structures. Before that, I earned my MSc (2021) and BSc (2017) in Mechanical Design and Production from Cairo University, Faculty of Engineering.
 
-My doctoral and postdoctoral research includes printable and e-tattoo wireless strain sensors, cracked-based RFID sensors, laser-induced graphene temperature sensors, wearable capacitive sensing, and geometry-driven toughness enhancement of composite joints (including auxetic stiffeners and microarchitectured interfaces). I combine fabrication experience with mechanical, fracture, fatigue, and dynamic characterization — including in-situ X-ray CT, synchrotron imaging, and DIC/DVC — and structural finite-element modeling in ABAQUS.
+My research spans ultrasensitive crack-based wireless strain sensors, printable and e-tattoo LC sensors for near-field interrogation, laser-induced graphene platforms for flexible temperature and strain sensing, and stretchable capacitive sensors for wearable human–machine interfaces. In parallel, I work on event-driven and edge-AI structural health monitoring—including semantic perception on Qualcomm platforms and hybrid ultra-low-power wake-up SHM nodes—and on geometry-driven strategies to enhance toughness in composite bonded joints.
 
-I am currently leading printable wireless piezoelectric sensing platforms for SHM, developing sensing methods for loading, degradation, curing, and damage in composites, and contributing to non-metallic pipeline inspection under the ENERCOMP consortium with Saudi Aramco.`,
+Across these themes, I combine hands-on fabrication with electromechanical characterization and system-level demonstration, from laboratory sensors to real-time wireless readout and competition demos. I also contribute to applied SHM efforts for composite and energy infrastructure, including work with the ENERCOMP consortium and Saudi Aramco.`,
   education: [
     {
       school: "King Abdullah University of Science and Technology (KAUST)",

@@ -1,0 +1,58 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { profile } from "../../data/profile";
+import { projects } from "../../data/projects";
+---
+
+<BaseLayout
+  title={`Research - ${profile.name}`}
+  description="Research themes in printable wireless sensing, flexible electronics, and composite mechanics."
+>
+  <h1>Research</h1>
+  <p>
+    Selected research themes. Open a theme for overview, related publications,
+    videos, and awards.
+  </p>
+
+  <div class="project-list">
+    {
+      projects.map((project) => (
+        <article class="project-feature">
+          {project.image ? (
+            <a
+              class:list={[
+                "project-feature-media",
+                project.imageFit === "contain" && "project-feature-media--contain",
+              ]}
+              href={`/research/${project.slug}`}
+            >
+              <img
+                src={project.image}
+                alt={`Summary figure for ${project.title}`}
+                loading="lazy"
+                style={
+                  project.imagePosition
+                    ? `object-position: ${project.imagePosition}`
+                    : undefined
+                }
+              />
+            </a>
+          ) : (
+            <div class="project-feature-media project-feature-media--empty" />
+          )}
+          <div class="project-feature-body">
+            <h2 class="project-feature-title">
+              <a href={`/research/${project.slug}`}>{project.title}</a>
+            </h2>
+            <p class="project-feature-summary">{project.summary}</p>
+            <div class="project-feature-actions">
+              <a class="project-more" href={`/research/${project.slug}`}>
+                View research
+              </a>
+            </div>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</BaseLayout>
