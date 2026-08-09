@@ -265,8 +265,65 @@ export const projects: Project[] = [
       },
     ],
   },
-
-
+  {
+    slug: "wireless-sensing-composite-pipelines",
+    title: "Wireless Sensing for Composite Pipelines",
+    summary:
+      "Capacitive wireless strain sensing for structural health monitoring of composite pipes, developed in collaboration with Saudi Aramco.",
+    overview: [
+      "This research focuses on wireless strain sensing for composite pipeline structures, targeting practical structural health monitoring in energy infrastructure.",
+      "In collaboration with Saudi Aramco, capacitive wireless strain sensors are developed and demonstrated for monitoring composite pipes—bridging laboratory sensing platforms with field-relevant non-metallic pipeline applications.",
+      "The work supports denser, lower-overhead monitoring of composite piping systems by combining capacitive sensing with wireless interrogation suited to industrial SHM constraints.",
+    ],
+    tags: ["SHM", "Composite pipes", "Wireless sensing", "Aramco"],
+    link: "https://www.ndt.net/search/docs.php?id=34073",
+    image: "/images/projects/composite-pipelines-list.png",
+    imageFit: "contain",
+    hideHero: true,
+    figures: [
+      {
+        src: "/images/projects/pipelines-capacitive-vs-gauge.png",
+        caption:
+          "Comparison of piezoresistive strain-gauge readout (low-level DC signal) with capacitive LC sensing (higher-voltage AC frequency readout and more consistent SNR).",
+      },
+      {
+        src: "/images/projects/pipelines-iot-architecture.png",
+        caption:
+          "IoT sensor and aggregator workflows for low-power measurement, peer-to-peer data transfer, and mobile or stationary aggregation on composite pipes.",
+      },
+      {
+        src: "/images/projects/pipelines-pipe-test-comparison.png",
+        caption:
+          "RTR pipe experiment with co-located capacitive strain sensor and reference strain gauge, and strain-time comparison under stepwise loading.",
+      },
+    ],
+    relatedDois: ["https://www.ndt.net/search/docs.php?id=34073"],
+    highlights: [
+      "Capacitive wireless strain sensors for composite pipe SHM",
+      "Application-driven collaboration with Saudi Aramco",
+      "Wireless interrogation tailored to non-metallic pipeline monitoring",
+      "Presented at EWSHM 2026",
+    ],
+    collaborators: [
+      {
+        name: "KAUST",
+        logo: "/images/logos/kaust.png",
+        href: "https://www.kaust.edu.sa/",
+      },
+      {
+        name: "Saudi Aramco",
+        logo: "/images/logos/aramco.jpg",
+        href: "https://www.aramco.com/",
+      },
+      {
+        name: "ENERCOMP",
+        logo: "/images/logos/enercomp.png",
+        href: "https://www.enercomp.org/",
+      },
+    ],
+    awards: [],
+    videos: [],
+  },
   {
     slug: "lig-flexible-sensors",
     title: "Laser-Induced Graphene Flexible Sensors",

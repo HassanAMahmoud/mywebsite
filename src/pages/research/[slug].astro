@@ -265,7 +265,11 @@ const hasResources = (project.resources?.length ?? 0) > 0;
     {
       hasCollaborators && (
         <section class="project-section">
-          <h2>Collaborator</h2>
+          <h2>
+            {project.collaborators!.length > 1
+              ? "Collaborators"
+              : "Collaborator"}
+          </h2>
           <div class="project-collaborators">
             {project.collaborators!.map((collaborator) =>
               collaborator.href ? (
@@ -274,6 +278,7 @@ const hasResources = (project.resources?.length ?? 0) > 0;
                   href={collaborator.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={collaborator.name}
                 >
                   <img
                     src={collaborator.logo}

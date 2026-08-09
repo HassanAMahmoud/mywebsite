@@ -658,8 +658,8 @@ li {
   display: block;
   height: auto;
   width: auto;
-  max-height: 120px;
-  max-width: 360px;
+  max-height: 110px;
+  max-width: 280px;
   object-fit: contain;
 }
 
