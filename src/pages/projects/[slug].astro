@@ -1,0 +1,157 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { profile } from "../../data/profile";
+import { projects, getProjectBySlug } from "../../data/projects";
+import {
+  journalPublications,
+  proceedings,
+  underReview,
+  patents,
+  talksAndPosters,
+  type Publication,
+} from "../../data/publications";
+import { formatAuthorsHtml } from "../../utils/formatAuthors";
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const project = getProjectBySlug(slug!);
+
+if (!project) {
+  throw new Error(`Project not found: ${slug}`);
+}
+
+const allPubs: Publication[] = [
+  ...journalPublications,
+  ...proceedings,
+  ...underReview,
+  ...patents,
+  ...talksAndPosters,
+];
+
+function normalizeDoi(value: string): string {
+  return value
+    .replace(/^https?:\/\/(dx\.)?doi\.org\//i, "")
+    .trim()
+    .toLowerCase();
+}
+
+const relatedPublications = (project.relatedDois ?? [])
+  .map((doi) => {
+    const key = normalizeDoi(doi);
+    return allPubs.find((pub) => pub.doi && normalizeDoi(pub.doi) === key);
+  })
+  .filter((pub): pub is Publication => Boolean(pub));
+
+const hasVideos = (project.videos?.length ?? 0) > 0;
+const hasAwards = (project.awards?.length ?? 0) > 0;
+const hasHighlights = (project.highlights?.length ?? 0) > 0;
+---
+
+<BaseLayout
+  title={`${project.title} - ${profile.name}`}
+  description={project.summary}
+>
+  <p class="project-back">
+    <a href="/projects">← Back to Projects</a>
+  </p>
+
+  <article class="project-detail">
+    <h1>{project.title}</h1>
+    <div class="tags">
+      {project.tags.map((tag) => <span class="tag">{tag}</span>)}
+    </div>
+
+    {
+      project.image && (
+        <figure class="project-figure">
+          <img
+            src={project.image}
+            alt={`Summary figure for ${project.title}`}
+          />
+        </figure>
+      )
+    }
+
+    <section class="project-section">
+      <h2>Overview</h2>
+      {project.overview.map((paragraph) => <p>{paragraph}</p>)}
+    </section>
+
+    {
+      hasHighlights && (
+        <section class="project-section">
+          <h2>Highlights</h2>
+          <ul>
+            {project.highlights!.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    {
+      relatedPublications.length > 0 && (
+        <section class="project-section">
+          <h2>Related publications</h2>
+          <ul class="project-pub-list">
+            {relatedPublications.map((pub) => (
+              <li>
+                <strong>{pub.title}</strong>
+                <div class="meta">
+                  <span set:html={formatAuthorsHtml(pub.authors)} />
+                  {" · "}
+                  <em>{pub.venue}</em> ({pub.year})
+                  {pub.doi && (
+                    <span>
+                      {" · "}
+                      <a href={pub.doi} target="_blank" rel="noopener noreferrer">
+                        [link]
+                      </a>
+                    </span>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    {
+      hasVideos && (
+        <section class="project-section">
+          <h2>Videos</h2>
+          <ul class="project-video-list">
+            {project.videos!.map((video) => (
+              <li>
+                <a href={video.url} target="_blank" rel="noopener noreferrer">
+                  {video.title}
+                </a>
+                {video.caption && <p class="meta">{video.caption}</p>}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    {
+      hasAwards && (
+        <section class="project-section">
+          <h2>Awards</h2>
+          <ul>
+            {project.awards!.map((award) => (
+              <li>{award}</li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+  </article>
+</BaseLayout>

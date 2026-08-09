@@ -12,7 +12,7 @@ const authorsHtml = formatAuthorsHtml(pub.authors);
 ---
 
 <article class="pub-card">
-  <div class="pub-thumb">
+  <div class:list={["pub-thumb", pub.imageFit === "contain" && "pub-thumb--contain"]}>
     <img src={image} alt="" width="320" height="220" loading="lazy" />
   </div>
   <div class="pub-body">

@@ -1,0 +1,60 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { profile } from "../../data/profile";
+import { newsItems, getNewsBySlug } from "../../data/news";
+
+export function getStaticPaths() {
+  return newsItems.map((item) => ({
+    params: { slug: item.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const item = getNewsBySlug(slug!);
+
+if (!item) {
+  throw new Error(`News item not found: ${slug}`);
+}
+---
+
+<BaseLayout
+  title={`${item.conference} - ${profile.name}`}
+  description={item.talkTitle ?? item.body[0]}
+>
+  <p class="news-back">
+    <a href="/news">← Back to News</a>
+  </p>
+
+  <article class="news-detail">
+    <img class="news-detail-image" src={item.image} alt={item.conference} />
+    <h1>
+      {item.date}-{item.conference}
+    </h1>
+    <p class="news-meta-line">
+      <span class="news-meta-label">Location:</span> {item.location}
+    </p>
+    {
+      item.talkTitle && (
+        <p class="news-meta-line">
+          <span class="news-meta-label">Title:</span> {item.talkTitle}
+        </p>
+      )
+    }
+    <div class="news-detail-body">
+      {item.body.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+
+    {
+      item.paperLink ? (
+        <div class="news-detail-links">
+          <p>
+            Related paper:{" "}
+            <a href={item.paperLink} target="_blank" rel="noopener noreferrer">
+              DOI
+            </a>
+          </p>
+        </div>
+      ) : null
+    }
+  </article>
+</BaseLayout>

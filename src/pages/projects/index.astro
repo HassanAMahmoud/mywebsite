@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { profile } from "../../data/profile";
+import { projects } from "../../data/projects";
+---
+
+<BaseLayout
+  title={`Projects - ${profile.name}`}
+  description="Research projects in printable wireless sensing, flexible electronics, and composite mechanics."
+>
+  <h1>Projects</h1>
+  <p>
+    Selected research themes. Open a project for overview, related publications,
+    videos, and awards.
+  </p>
+
+  <div class="project-list">
+    {
+      projects.map((project) => (
+        <article class="project-card">
+          {project.image && (
+            <a class="project-card-image" href={`/projects/${project.slug}`}>
+              <img
+                src={project.image}
+                alt={`Summary figure for ${project.title}`}
+                loading="lazy"
+              />
+            </a>
+          )}
+          <div class="project-card-body">
+            <h2>
+              <a href={`/projects/${project.slug}`}>{project.title}</a>
+            </h2>
+            <p>{project.summary}</p>
+            <div class="tags">
+              {project.tags.map((tag) => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+            <a class="project-more" href={`/projects/${project.slug}`}>
+              View project
+            </a>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</BaseLayout>

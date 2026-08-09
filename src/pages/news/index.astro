@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { profile } from "../../data/profile";
+import { newsItems } from "../../data/news";
+---
+
+<BaseLayout title={`News - ${profile.name}`} description="News and updates.">
+  <h1>News</h1>
+  <div class="news-list">
+    {
+      newsItems.map((item) => (
+        <article class="news-card">
+          <div class="news-card-image">
+            <img src={item.image} alt={item.conference} loading="lazy" />
+          </div>
+          <div class="news-card-body">
+            <h2 class="news-headline">
+              <a href={`/news/${item.slug}`}>
+                {item.date}-{item.conference}
+              </a>
+            </h2>
+            <p class="news-meta-line">
+              <span class="news-meta-label">Location:</span> {item.location}
+            </p>
+            {item.talkTitle && (
+              <p class="news-meta-line">
+                <span class="news-meta-label">Title:</span> {item.talkTitle}
+              </p>
+            )}
+            <a class="news-more" href={`/news/${item.slug}`}>Read more</a>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</BaseLayout>

@@ -9,23 +9,41 @@ import { mediaItems } from "../data/media";
   description="Press and media coverage."
 >
   <h1>Media</h1>
-  <p>Press coverage and media mentions will be listed here.</p>
-  {
-    mediaItems.map((item) => (
-      <div class="pub-item">
-        <strong>{item.title}</strong>
-        <div class="meta">
-          {item.outlet} · {item.date}
-          {item.link ? (
-            <span>
-              {" · "}
-              <a href={item.link} target="_blank" rel="noopener noreferrer">
-                [link]
+  <div class="media-list">
+    {
+      mediaItems.map((item) => (
+        <article class="media-card">
+          {item.video && (
+            <div class="media-card-video">
+              <video controls preload="metadata" playsinline>
+                <source src={item.video} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          )}
+          {item.image && (
+            <div class="media-card-image">
+              <img src={item.image} alt={item.title} loading="lazy" />
+            </div>
+          )}
+          <div class="media-card-body">
+            <h2 class="media-headline">
+              {item.date}-{item.title}
+            </h2>
+            <p class="media-summary">{item.summary}</p>
+            {item.link && (
+              <a
+                class="media-more"
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {item.linkLabel ?? "Read more"}
               </a>
-            </span>
-          ) : null}
-        </div>
-      </div>
-    ))
-  }
+            )}
+          </div>
+        </article>
+      ))
+    }
+  </div>
 </BaseLayout>

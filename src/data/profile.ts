@@ -9,8 +9,7 @@ export const profile = {
   address: "KAUST, Thuwal, Kingdom of Saudi Arabia",
   institution: "KAUST",
   portrait: "/images/portrait.png",
-  /** Replace cover-placeholder.svg with your banner image (e.g. cover.jpg). */
-  cover: "/images/cover-placeholder.svg",
+  cover: "/images/cover.png",
   email: "hassan.mahmoud@kaust.edu.sa",
   links: {
     linkedin: "https://www.linkedin.com/in/hassanamahmoud",

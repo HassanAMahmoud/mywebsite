@@ -7,6 +7,8 @@ export type Publication = {
   status?: "published" | "under-review" | "proceedings" | "patent" | "talk";
   /** Replace with a paper figure path under /public/images/pubs/ */
   image?: string;
+  /** Show full image in the thumbnail (no crop). */
+  imageFit?: "contain";
 };
 
 export const PUB_PLACEHOLDER = "/images/pub-placeholder.svg";
@@ -20,6 +22,7 @@ export const journalPublications: Publication[] = [
     year: "2026",
     doi: "https://doi.org/10.1016/j.matdes.2026.116194",
     status: "published",
+    image: "/images/pubs/sign-language-sensors.png",
   },
   {
     authors: "A. Abdou, H. A. Mahmoud, M. Al Refae, Y. Zhang, H. Rekik, A. Seno, G. Lubineau",
@@ -29,6 +32,7 @@ export const journalPublications: Publication[] = [
     year: "2026",
     doi: "https://doi.org/10.1021/acsanm.5c05242",
     status: "published",
+    image: "/images/pubs/anisotropy-lig-strain.png",
   },
   {
     authors: "W. Badeghaish, A. Wagih, H. A. Mahmoud, S. Abdel-Monsef, P. Maimi, G. Lubineau",
@@ -38,6 +42,7 @@ export const journalPublications: Publication[] = [
     year: "2025",
     doi: "https://doi.org/10.1016/j.jmrt.2025.12.085",
     status: "published",
+    image: "/images/pubs/supercritical-co2-peek.png",
   },
   {
     authors:
@@ -48,6 +53,7 @@ export const journalPublications: Publication[] = [
     year: "2025",
     doi: "https://doi.org/10.1016/j.ijhydene.2025.151334",
     status: "published",
+    image: "/images/pubs/hydrogen-storage-tanks.png",
   },
   {
     authors: "H. A. Mahmoud, A. AlJafari, M. Bahabri, M. A. Alrefae, G. Lubineau",
@@ -57,6 +63,7 @@ export const journalPublications: Publication[] = [
     year: "2025",
     doi: "https://doi.org/10.1021/acsaelm.5c00562",
     status: "published",
+    image: "/images/pubs/seebeck-lig-temperature.png",
   },
   {
     authors: "H. A. Mahmoud, H. Nesser, G. Lubineau",
@@ -66,6 +73,7 @@ export const journalPublications: Publication[] = [
     year: "2025",
     doi: "https://doi.org/10.1002/advs.202411346",
     status: "published",
+    image: "/images/pubs/printable-strain-sensor.png",
   },
   {
     authors:
@@ -76,6 +84,7 @@ export const journalPublications: Publication[] = [
     year: "2024",
     doi: "https://doi.org/10.1002/adma.202407132",
     status: "published",
+    image: "/images/pubs/extrinsic-dissipation-review.png",
   },
   {
     authors: "H. A. Mahmoud, H. Nesser, A. Wagih, G. Lubineau",
@@ -84,6 +93,7 @@ export const journalPublications: Publication[] = [
     year: "2024",
     doi: "https://doi.org/10.1021/acsaelm.4c00819",
     status: "published",
+    image: "/images/pubs/cracked-metallic-film.png",
   },
   {
     authors: "A. Wagih, H. A. Mahmoud, G. Lubineau",
@@ -93,6 +103,7 @@ export const journalPublications: Publication[] = [
     year: "2024",
     doi: "https://doi.org/10.1016/j.matdes.2024.112963",
     status: "published",
+    image: "/images/pubs/auxetic-t-joints.png",
   },
   {
     authors: "A. Alshedayfat, A. Wagih, A. Yudhanto, H. A. Mahmoud, G. Lubineau",
@@ -102,6 +113,7 @@ export const journalPublications: Publication[] = [
     year: "2024",
     doi: "https://doi.org/10.1016/j.compositesa.2024.108090",
     status: "published",
+    image: "/images/pubs/mode-ii-sacrificial-cracks.png",
   },
   {
     authors:
@@ -112,6 +124,7 @@ export const journalPublications: Publication[] = [
     year: "2024",
     doi: "https://doi.org/10.1177/00219983241235853",
     status: "published",
+    image: "/images/pubs/carbon-kevlar-hybrid.png",
   },
   {
     authors: "H. Nesser, H. A. Mahmoud, G. Lubineau",
@@ -120,6 +133,7 @@ export const journalPublications: Publication[] = [
     year: "2023",
     doi: "https://doi.org/10.1002/advs.202301807",
     status: "published",
+    image: "/images/pubs/rfid-shm-sensor.png",
   },
   {
     authors: "A. Wagih, H. A. Mahmoud, R. Tao, G. Lubineau",
@@ -129,6 +143,7 @@ export const journalPublications: Publication[] = [
     year: "2023",
     doi: "https://doi.org/10.3390/polym15020259",
     status: "published",
+    image: "/images/pubs/tough-thermoplastic-tape.png",
   },
 ];
 
@@ -183,7 +198,9 @@ export const proceedings: Publication[] = [
     title: "Printed E-Tattoo Wireless Sensor for Smart Monitoring of Composite Structures",
     venue: "EWSHM 2026",
     year: "2026",
+    doi: "https://www.ndt.net/search/docs.php?id=33840",
     status: "proceedings",
+    image: "/images/pubs/e-tattoo-wireless-sensor.png",
   },
   {
     authors:
@@ -191,7 +208,9 @@ export const proceedings: Publication[] = [
     title: "Capacitive Wireless Strain Sensors for Structural Health Monitoring of Composite Pipes",
     venue: "EWSHM 2026",
     year: "2026",
+    doi: "https://www.ndt.net/search/docs.php?id=34073",
     status: "proceedings",
+    image: "/images/pubs/capacitive-wireless-pipes.png",
   },
   {
     authors: "H. A. Mahmoud, G. Lubineau",
@@ -201,6 +220,7 @@ export const proceedings: Publication[] = [
     year: "2025",
     doi: "https://doi.org/10.1117/12.3052549",
     status: "proceedings",
+    image: "/images/pubs/advanced-e-tattoo-spie.png",
   },
   {
     authors: "H. A. Mahmoud, G. Lubineau",
@@ -210,6 +230,7 @@ export const proceedings: Publication[] = [
     year: "2025",
     doi: "https://doi.org/10.1117/12.3050755",
     status: "proceedings",
+    image: "/images/pubs/lig-temperature-spie.png",
   },
   {
     authors: "H. A. Mahmoud, H. Nesser, G. Lubineau",
@@ -219,6 +240,7 @@ export const proceedings: Publication[] = [
     year: "2024",
     doi: "https://doi.org/10.1109/FLEPS61194.2024.10604024",
     status: "proceedings",
+    image: "/images/pubs/piezoresistive-capacitive-fleps.png",
   },
   {
     authors: "H. A. Mahmoud, H. Nesser, G. Lubineau",
@@ -228,6 +250,7 @@ export const proceedings: Publication[] = [
     year: "2024",
     doi: "https://doi.org/10.58286/29725",
     status: "proceedings",
+    image: "/images/pubs/printable-rf-patches.png",
   },
   {
     authors: "H. A. Mahmoud, H. Nesser, A. Wagih, G. Lubineau",
@@ -236,11 +259,13 @@ export const proceedings: Publication[] = [
     year: "2023",
     doi: "https://doi.org/10.12783/shm2023/36847",
     status: "proceedings",
+    image: "/images/pubs/wireless-strain-shm.png",
   },
   {
     authors: "G. Lubineau, H. A. Mahmoud, H. Nesser",
     title:
       "Toward Smart Composites for Structural Health Monitoring via Highly Sensitive Capacitive Wireless Sensor",
+    image: "/images/pubs/smart-composites-capacitive.png",
     venue: "SMART 2023 (ECCOMAS)",
     year: "2023",
     doi: "https://doi.org/10.7712/150123.9766.443434",
@@ -252,6 +277,7 @@ export const proceedings: Publication[] = [
       "Analysis of Composite Bolted Connection Joints under Out-of-Plane Loading",
     venue: "ASME IMECE",
     year: "2020",
+    image: "/images/pubs/bolted-joints-out-of-plane.png",
     doi: "https://doi.org/10.1115/IMECE2020-23303",
     status: "proceedings",
   },
@@ -262,21 +288,21 @@ export const patents: Publication[] = [
     authors: "Y. Shi, H. A. Mahmoud, G. Lubineau",
     title:
       "Embedded Passive Wireless Capacitive Sensing System and Method for Real-Time Curing Monitoring",
-    venue: "Provisional U.S. Application — Docket No. 0338-855/2026-180-01",
+    venue: "Provisional U.S. Application (Filed) — Docket No. 0338-855/2026-180-01",
     year: "2026",
     status: "patent",
   },
   {
     authors: "A. Wagih, H. Ejaz, H. A. Mahmoud, G. Lubineau",
     title: "Inspection of GFRP Composite Adhesive Joint using Optical Transillumination",
-    venue: "Provisional U.S. Application — Docket No. 0338-843/2026-148-01",
+    venue: "Provisional U.S. Application (Filed) — Docket No. 0338-843/2026-148-01",
     year: "2026",
     status: "patent",
   },
   {
     authors: "H. A. Mahmoud, N. Jaber, G. Lubineau",
     title: "Wireless Capacitive Sensor for Low Frequency Vibrations",
-    venue: "Provisional U.S. Application (Submitted)",
+    venue: "Provisional U.S. Application (Filed)",
     year: "2025",
     status: "patent",
   },
@@ -285,7 +311,7 @@ export const patents: Publication[] = [
       "H. A. Mahmoud, O. Khalifa, M. Abdullah, A. H. Seno, N. Kouzahya, A. Asiri, A. Al-Jarro, A. Shehri, H. Saiari, T. Al-Naffouri, G. Lubineau",
     title:
       "Capacitive Strain Sensing IoT Device with Secure On-Demand Wireless Data Transmission",
-    venue: "Provisional U.S. Application — filed November 15, 2025",
+    venue: "Provisional U.S. Application (Filed) — November 15, 2025",
     year: "2025",
     status: "patent",
   },
@@ -293,7 +319,7 @@ export const patents: Publication[] = [
     authors:
       "H. A. Mahmoud, O. Khalifa, M. Abdullah, A. H. Seno, N. Kouzahya, A. Asiri, A. Al-Jarro, A. Shehri, H. Saiari, T. Al-Naffouri, G. Lubineau",
     title: "Data Aggregator for Reading Sensed IoT Data on Demand",
-    venue: "Provisional U.S. Application — filed November 15, 2025",
+    venue: "Provisional U.S. Application (Filed) — November 15, 2025",
     year: "2025",
     status: "patent",
   },
@@ -301,7 +327,7 @@ export const patents: Publication[] = [
     authors: "N. Divakaran, H. A. Mahmoud, G. Lubineau",
     title:
       "PDMS-MWCNT-Based Piezoresistive Ink with Tunable Viscosity for Stretchable Sensor Fabrication",
-    venue: "Provisional U.S. Application No. 2026-029",
+    venue: "Provisional U.S. Application (Filed) — No. 2026-029",
     year: "2025",
     status: "patent",
   },
@@ -309,14 +335,14 @@ export const patents: Publication[] = [
     authors: "H. A. Mahmoud, G. Lubineau",
     title:
       "Controlling the Sensitivity and Linearity of Capacitive Strain Sensors Using Non-Uniform Interdigitated Electrodes",
-    venue: "Provisional U.S. Application No. 63/725,625",
+    venue: "Provisional U.S. Application (Filed) — No. 63/725,625",
     year: "2024",
     status: "patent",
   },
   {
     authors: "A. Wagih, H. A. Mahmoud, R. Tao, G. Lubineau",
     title: "Toughening Thermoplastic Adhesive Tapes using Tailored Defects",
-    venue: "Provisional U.S. Application (Submitted)",
+    venue: "Provisional U.S. Application (Filed)",
     year: "2022",
     status: "patent",
   },
@@ -329,13 +355,15 @@ export const talksAndPosters: Publication[] = [
     venue: "Oral + Demo Session — Toulouse, France",
     year: "2026",
     status: "talk",
+    image: "/images/pubs/ewshm-2026-talk.png",
   },
   {
     authors: "H. A. Mahmoud",
-    title: "Saudi Aramco Presentation",
+    title: "MECC 19",
     venue: "Dhahran, KSA",
     year: "2025",
     status: "talk",
+    image: "/images/pubs/mecc-19-talk.png",
   },
   {
     authors: "H. A. Mahmoud",
@@ -343,6 +371,7 @@ export const talksAndPosters: Publication[] = [
     venue: "Oral + Demo Session — Istanbul, Turkey",
     year: "2025",
     status: "talk",
+    image: "/images/pubs/ieee-pimrc.png",
   },
   {
     authors: "H. A. Mahmoud",
@@ -350,6 +379,7 @@ export const talksAndPosters: Publication[] = [
     venue: "Oral and Poster — Vancouver, Canada",
     year: "2025",
     status: "talk",
+    image: "/images/pubs/spie-2025-talk.png",
   },
   {
     authors: "H. A. Mahmoud",
@@ -357,6 +387,16 @@ export const talksAndPosters: Publication[] = [
     venue: "Poster — Munich, Germany",
     year: "2025",
     status: "talk",
+    image: "/images/pubs/lopec-2025-talk.png",
+  },
+  {
+    authors: "H. A. Mahmoud",
+    title:
+      "Flexible and Printable Wireless Sensors Technologies for Structural, Wearable and Environmental Monitoring Applications",
+    venue: "Invited Talk — The British University in Egypt",
+    year: "2024",
+    status: "talk",
+    image: "/images/pubs/bue-invited-talk-2024.png",
   },
   {
     authors: "H. A. Mahmoud",
@@ -364,6 +404,7 @@ export const talksAndPosters: Publication[] = [
     venue: "Poster — Tampere, Finland",
     year: "2024",
     status: "talk",
+    image: "/images/pubs/ieee-fleps-2024-talk.png",
   },
   {
     authors: "H. A. Mahmoud",
@@ -371,6 +412,7 @@ export const talksAndPosters: Publication[] = [
     venue: "Oral — Potsdam, Germany",
     year: "2024",
     status: "talk",
+    image: "/images/pubs/ewshm-2024-talk.png",
   },
   {
     authors: "H. A. Mahmoud",
@@ -378,6 +420,7 @@ export const talksAndPosters: Publication[] = [
     venue: "Poster — Munich, Germany",
     year: "2024",
     status: "talk",
+    image: "/images/pubs/lopec-2024-talk.png",
   },
   {
     authors: "H. A. Mahmoud",
@@ -385,6 +428,8 @@ export const talksAndPosters: Publication[] = [
     venue: "Oral — Stanford, USA",
     year: "2023",
     status: "talk",
+    image: "/images/pubs/iwshm-2023.png",
+    imageFit: "contain",
   },
   {
     authors: "H. A. Mahmoud",
@@ -392,6 +437,7 @@ export const talksAndPosters: Publication[] = [
     venue: "Oral — Patras, Greece",
     year: "2023",
     status: "talk",
+    image: "/images/pubs/eccomas-smart-2023-talk.png",
   },
   {
     authors: "H. A. Mahmoud",
@@ -399,6 +445,7 @@ export const talksAndPosters: Publication[] = [
     venue: "Poster — KAUST, KSA",
     year: "2023",
     status: "talk",
+    image: "/images/pubs/energizing-composites-2023.png",
   },
   {
     authors: "H. A. Mahmoud",
@@ -406,6 +453,7 @@ export const talksAndPosters: Publication[] = [
     venue: "Oral — Palermo, Italy",
     year: "2022",
     status: "talk",
+    image: "/images/pubs/ewshm-2022-talk.png",
   },
   {
     authors: "H. A. Mahmoud",
@@ -413,5 +461,6 @@ export const talksAndPosters: Publication[] = [
     venue: "Oral — Virtual",
     year: "2020",
     status: "talk",
+    image: "/images/pubs/asme-imece-2020-talk.png",
   },
 ];

@@ -1,15 +1,33 @@
+import { newsItems, type NewsItem } from "./news";
+
 export type AwardItem = {
   title: string;
   detail: string;
   year: string;
 };
 
-export const honors: AwardItem[] = [
-  {
-    title: "EWSHM 2026 Students and Young Professional Challenge Awards",
-    detail: "EWSHM 2026, France",
-    year: "2026",
-  },
+/** News entries that should appear on the Awards page (with photos). */
+export const awardNewsSlugs = [
+  "ewshm-2026-toulouse",
+  "aramco-outstanding-performance-2025",
+  "deans-award-2025",
+  "deans-award-2024",
+  "lopec-2024-student-poster-award",
+] as const;
+
+export function getAwardNews(): NewsItem[] {
+  const order = new Map(awardNewsSlugs.map((slug, index) => [slug, index]));
+  return newsItems
+    .filter((item) => order.has(item.slug as (typeof awardNewsSlugs)[number]))
+    .sort(
+      (a, b) =>
+        (order.get(a.slug as (typeof awardNewsSlugs)[number]) ?? 0) -
+        (order.get(b.slug as (typeof awardNewsSlugs)[number]) ?? 0),
+    );
+}
+
+/** Additional honors that do not yet have a News photo entry. */
+export const otherHonors: AwardItem[] = [
   {
     title: "IEEE ComSoc Student Competition — Honorary Certificate",
     detail: "Top 20, IEEE ComSoc 2025, Taiwan",
@@ -21,41 +39,8 @@ export const honors: AwardItem[] = [
     year: "2025",
   },
   {
-    title: "Outstanding Performance Award, EXPEC ARC KURC",
-    detail: "Saudi Aramco",
-    year: "2025",
-  },
-  {
-    title: "PSE Dean’s Research Award",
-    detail: "KAUST",
-    year: "2025",
-  },
-  {
-    title: "PSE Dean’s Research Award",
-    detail: "KAUST",
-    year: "2024",
-  },
-  {
-    title: "Best Poster Award, LOPEC 2024",
-    detail: "Munich, Germany",
-    year: "2024",
-  },
-  {
     title: "Recognition Award of Engineering Achievements",
     detail: "The British University in Egypt",
-    year: "2022",
-  },
-];
-
-export const grants: AwardItem[] = [
-  {
-    title: "High Precision Wireless Gauges for Structural Health Monitoring",
-    detail: "ENERCOMP Consortium (KAUST & Saudi Aramco) — $191,814",
-    year: "2024",
-  },
-  {
-    title: "RTF — Stretch Sensors for Integration into Smart Gloves",
-    detail: "KAUST Research Translation Grant — $751,600",
     year: "2022",
   },
 ];

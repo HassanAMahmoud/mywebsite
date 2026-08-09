@@ -17,6 +17,7 @@ const affiliations = [
     name: "Cairo University",
     href: "https://cu.edu.eg/",
     logo: "/images/logos/cairo.png",
+    larger: true,
   },
 ];
 ---
@@ -37,7 +38,7 @@ const affiliations = [
     {
       affiliations.map((item) => (
         <a
-          class="logo-link"
+          class:list={["logo-link", item.larger && "logo-link--larger"]}
           href={item.href}
           target="_blank"
           rel="noopener noreferrer"

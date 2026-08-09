@@ -1,46 +1,63 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { profile } from "../data/profile";
-import { honors, grants } from "../data/awards";
+import { getAwardNews, otherHonors } from "../data/awards";
+
+const awardNews = getAwardNews();
 ---
 
 <BaseLayout
   title={`Awards - ${profile.name}`}
-  description="Honors, awards, and research funding."
+  description="Honors and awards."
 >
   <h1>Awards</h1>
 
-  <h2>Honors & awards</h2>
-  <ul>
+  <div class="award-list">
     {
-      honors.map((item) => (
-        <li>
-          <strong>
-            {item.title} ({item.year})
-          </strong>
-          — {item.detail}
-        </li>
+      awardNews.map((item) => (
+        <article class="award-card">
+          <a class="award-card-image" href={`/news/${item.slug}`}>
+            <img
+              src={item.image}
+              alt={item.conference}
+              loading="lazy"
+            />
+          </a>
+          <div class="award-card-body">
+            <h2 class="award-headline">
+              <a href={`/news/${item.slug}`}>
+                {item.date}-{item.conference}
+              </a>
+            </h2>
+            <p class="award-meta">
+              <span class="award-meta-label">Location:</span> {item.location}
+            </p>
+            {item.talkTitle && (
+              <p class="award-meta">
+                <span class="award-meta-label">Title:</span> {item.talkTitle}
+              </p>
+            )}
+          </div>
+        </article>
       ))
     }
-  </ul>
+  </div>
 
-  <h2>Grants & funding</h2>
-  <ul>
-    {
-      grants.map((item) => (
-        <li>
-          <strong>
-            {item.title} ({item.year})
-          </strong>
-          — {item.detail}
-        </li>
-      ))
-    }
-  </ul>
-
-  <p>
-    Patents are listed under
-    {" "}
-    <a href="/publications#patents">Publications → Patents</a>.
-  </p>
+  {
+    otherHonors.length > 0 && (
+      <>
+        <h2>Other honors</h2>
+        <ul>
+          {otherHonors.map((item) => (
+            <li>
+              <strong>
+                {item.title} ({item.year})
+              </strong>
+              — {item.detail}
+            </li>
+          ))}
+        </ul>
+      </>
+    )
+  }
 </BaseLayout>
