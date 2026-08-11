@@ -1,8 +1,8 @@
 ---
-import { projects } from "../../data/projects";
+import { publishedProjects } from "../../data/projects";
 
 export function getStaticPaths() {
-  return projects.map((project) => ({
+  return publishedProjects.map((project) => ({
     params: { slug: project.slug },
   }));
 }

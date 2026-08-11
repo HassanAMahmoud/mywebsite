@@ -674,7 +674,7 @@ li {
   height: auto;
   width: auto;
   max-height: 110px;
-  max-width: 280px;
+  max-width: min(100%, 640px);
   object-fit: contain;
 }
 

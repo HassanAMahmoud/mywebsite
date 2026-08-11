@@ -61,6 +61,8 @@ export type Project = {
   tracks?: ProjectTrack[];
   collaborators?: ProjectCollaborator[];
   resources?: ProjectResource[];
+  /** Hide from Research list and detail routes until ready to publish */
+  hidden?: boolean;
 };
 
 export const projects: Project[] = [
@@ -219,6 +221,7 @@ export const projects: Project[] = [
 {
     slug: "wireless-sensing-composite-pipelines",
     title: "Wireless Sensing for Composite Pipelines",
+    hidden: true,
     summary:
       "Capacitive wireless strain sensing for structural health monitoring of composite pipes, developed in collaboration with Saudi Aramco.",
     overview: [
@@ -257,19 +260,8 @@ export const projects: Project[] = [
     ],
     collaborators: [
       {
-        name: "KAUST",
-        logo: "/images/logos/kaust.png",
-        href: "https://www.kaust.edu.sa/",
-      },
-      {
-        name: "Saudi Aramco",
-        logo: "/images/logos/aramco.jpg",
-        href: "https://www.aramco.com/",
-      },
-      {
-        name: "ENERCOMP",
-        logo: "/images/logos/enercomp.png",
-        href: "https://www.enercomp.org/",
+        name: "ENERCOMP, KAUST, and Saudi Aramco",
+        logo: "/images/logos/enercomp-kaust-aramco.png",
       },
     ],
     awards: [],
@@ -454,6 +446,8 @@ export const projects: Project[] = [
   },
 ]
 
+export const publishedProjects = projects.filter((project) => !project.hidden);
+
 export function getProjectBySlug(slug: string): Project | undefined {
-  return projects.find((project) => project.slug === slug);
+  return publishedProjects.find((project) => project.slug === slug);
 }

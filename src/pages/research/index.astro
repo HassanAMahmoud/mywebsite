@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { profile } from "../../data/profile";
-import { projects } from "../../data/projects";
+import { publishedProjects } from "../../data/projects";
 ---
 
 <BaseLayout
@@ -16,7 +16,7 @@ import { projects } from "../../data/projects";
 
   <div class="project-list">
     {
-      projects.map((project) => (
+      publishedProjects.map((project) => (
         <article class="project-feature">
           {project.image ? (
             <a

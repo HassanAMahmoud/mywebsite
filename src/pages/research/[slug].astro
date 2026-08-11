@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { profile } from "../../data/profile";
-import { projects, getProjectBySlug } from "../../data/projects";
+import { publishedProjects, getProjectBySlug } from "../../data/projects";
 import {
   journalPublications,
   proceedings,
@@ -13,7 +13,7 @@ import {
 import { formatAuthorsHtml } from "../../utils/formatAuthors";
 
 export function getStaticPaths() {
-  return projects.map((project) => ({
+  return publishedProjects.map((project) => ({
     params: { slug: project.slug },
   }));
 }
