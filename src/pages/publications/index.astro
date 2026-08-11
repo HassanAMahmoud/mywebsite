@@ -7,32 +7,46 @@ import {
   proceedings,
   patents,
   talksAndPosters,
+  type Publication,
 } from "../../data/publications";
+
+function groupByYear(items: Publication[]) {
+  const groups = new Map<string, Publication[]>();
+
+  for (const item of items) {
+    const year = item.year || "Other";
+    const list = groups.get(year) ?? [];
+    list.push(item);
+    groups.set(year, list);
+  }
+
+  return [...groups.entries()].sort(([a], [b]) => Number(b) - Number(a));
+}
 
 const categories = [
   {
     id: "journals",
     count: journalPublications.length,
     label: "Journal articles",
-    items: journalPublications,
+    years: groupByYear(journalPublications),
   },
   {
     id: "proceedings",
     count: proceedings.length,
     label: "Conference proceedings",
-    items: proceedings,
+    years: groupByYear(proceedings),
   },
   {
     id: "talks",
     count: talksAndPosters.length,
     label: "Talks and Posters",
-    items: talksAndPosters,
+    years: groupByYear(talksAndPosters),
   },
   {
     id: "patents",
     count: patents.length,
     label: "Patents",
-    items: patents,
+    years: groupByYear(patents),
   },
 ];
 ---
@@ -81,8 +95,13 @@ const categories = [
         <h2>
           {category.count} {category.label}
         </h2>
-        {category.items.map((pub) => (
-          <PubCard pub={pub} />
+        {category.years.map(([year, pubs]) => (
+          <div class="pub-year-group">
+            <h3 class="pub-year">{year}</h3>
+            {pubs.map((pub) => (
+              <PubCard pub={pub} />
+            ))}
+          </div>
         ))}
       </section>
     ))

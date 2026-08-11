@@ -13,17 +13,29 @@ import { mediaItems } from "../data/media";
     {
       mediaItems.map((item) => (
         <article class="media-card">
-          {item.video && (
-            <div class="media-card-video">
-              <video controls preload="metadata" playsinline>
-                <source src={item.video} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          )}
-          {item.image && (
-            <div class="media-card-image">
-              <img src={item.image} alt={item.title} loading="lazy" />
+          {(item.video || item.image) && (
+            <div class="media-card-frame">
+              {item.video && (
+                <div class="media-card-video">
+                  {/\.gif$/i.test(item.video) ? (
+                    <img
+                      src={item.video}
+                      alt={item.title}
+                      loading="lazy"
+                    />
+                  ) : (
+                    <video controls preload="metadata" playsinline>
+                      <source src={item.video} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  )}
+                </div>
+              )}
+              {item.image && (
+                <div class="media-card-image">
+                  <img src={item.image} alt={item.title} loading="lazy" />
+                </div>
+              )}
             </div>
           )}
           <div class="media-card-body">

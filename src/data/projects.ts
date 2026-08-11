@@ -64,58 +64,72 @@ export type Project = {
 };
 
 export const projects: Project[] = [
-  {
-    slug: "wireless-crack-strain-sensors",
-    title: "Ultrasensitive Wireless Crack-Based Strain Sensors",
+{
+    slug: "printable-e-tattoo-wireless-sensors",
+    title: "Printable and E-Tattoo Wireless Strain Sensors",
     summary:
-      "Crack-based metallic-film and RFID sensing architectures for ultra-sensitive, passive wireless strain measurement in structural health monitoring and related applications.",
+      "Printable and transferable e-tattoo wireless strain sensors that couple piezoresistive electrodes with LC resonance for highly sensitive near-field interrogation on composite structures.",
     overview: [
-      "This research develops ultrasensitive wireless strain sensors that exploit controlled cracking and fragmentation in thin metallic films.",
-      "By tuning film fragmentation, small mechanical strains produce large changes in electrical response, enabling high-sensitivity readout through RFID and related radiofrequency architectures without onboard batteries.",
-      "These passive wireless sensors are suited to structural health monitoring of large infrastructure and composite structures, where dense, low-power sensing is needed across applications such as oil and gas assets, bridges, aerospace, and wind energy.",
+      "This research develops a family of printable and e-tattoo wireless strain sensors for structural health monitoring of composite structures. The two formats share the same sensing idea—strain-dependent electrode resistance that reshapes the capacitive/RF response—while spanning routes from fully printed patches to ultra-thin transferable tattoos.",
+      "At the device level, interdigitated electrodes are modeled as a distributed RC network. Under low resistivity the AC signal spans the full electrode length; as strain raises electrode resistance, voltage attenuates along the fingers and the effective sensing length shrinks. That mechanism appears experimentally as a strong, frequency-dependent shift in effective capacitance and, in wireless LC tags, as a clear resonance-frequency shift under near-field readout—unlike control devices built with only conductive electrodes.",
+      "Building on this principle, fully printable sensors enable highly sensitive wireless near-field interrogation, while e-tattoo variants are fabricated as ultra-thin, transferable films that conform to textured and curved composite surfaces. Frequency-modulated printed capacitive sensing further improves sensitivity and linearity. The devices have been integrated with flexible wireless readout electronics for real-time SHM demonstrations, and the printable-sensor work received the Best Poster Award at LOPEC 2024.",
     ],
-    tags: ["RFID", "Crack sensors", "SHM", "Wireless"],
-    link: "https://doi.org/10.1002/advs.202301807",
-    image: "/images/projects/wireless-crack-strain-sensors.png",
-    imageFit: "contain",
+    tags: ["Printed electronics", "E-tattoo", "NFC/RF", "Strain"],
+    link: "https://doi.org/10.1002/advs.202411346",
+    image: "/images/projects/printable-e-tattoo-list.png",
+    hideHero: true,
     figures: [
       {
-        src: "/images/projects/crack-sensor-wireless.png",
+        src: "/images/projects/printable-ide-mechanism.png",
         caption:
-          "Wireless crack-based strain sensor architecture, sensing mechanism, and fabricated device.",
+          "Interdigitated electrode capacitive sensing: lumped-element model and strain-dependent frequency response under low- and high-resistivity electrode conditions.",
       },
       {
-        src: "/images/projects/crack-sensor-fragmentation.png",
+        src: "/images/projects/printable-wireless-lc-strain.png",
         caption:
-          "Metallic-film fragmentation design, strain response, and SEM characterization of Cr/Au crack patterns.",
+          "Wireless LC strain sensor with piezoresistive IDE electrodes: near-field readout, resonance shift with strain, and comparison with conductive-electrode controls.",
+      },
+      {
+        src: "/images/projects/printable-e-tattoo-fabrication.png",
+        caption:
+          "Fabrication and transfer of ultra-thin e-tattoo sensors, with conformal integration on textured and curved composite surfaces.",
       },
     ],
     relatedDois: [
-      "10.1002/advs.202301807",
-      "10.1021/acsaelm.4c00819",
+      "10.1002/advs.202411346",
+      "10.1109/FLEPS61194.2024.10604024",
+      "https://www.ndt.net/search/docs.php?id=33840",
     ],
     highlights: [
-      "High-sensitivity RFID strain sensing for structural health monitoring",
-      "Optimization of metallic-film fragmentation for cracked-based strain sensors",
-      "Passive wireless readout suitable for large-area SHM applications",
+      "Piezoresistive IDE electrodes that convert strain into a distributed RC / frequency-response change",
+      "Fully printable LC wireless strain sensors with sensitive near-field resonance readout",
+      "Ultra-thin e-tattoo formats transferable onto textured and curved composites",
+      "Frequency-modulated printed capacitive sensing for higher sensitivity and linearity",
+      "Flexible wireless readout demonstrated for real-time SHM",
+      "Best Poster Award, LOPEC 2024",
     ],
-    awards: [],
+    awards: [
+      {
+        title: "Best Poster Award, LOPEC 2024",
+        image: "/images/news/lopec-2024.png",
+      },
+    ],
     videos: [
       {
-        title: "Portable VNA Readout of a Flexible Crack-Based RFID Coil",
-        url: "/videos/crack-s1.mp4",
+        title: "Fabrication and Transfer Process for E-Tattoo Sensors",
+        url: "/videos/video-s1.mp4",
         caption:
-          "Handheld S11 measurement of a flexible crack-based RFID coil sensor using a portable vector network analyzer.",
+          "Fabrication and transfer process for e-tattoo wireless sensors.",
       },
       {
-        title: "Near-Field Interrogation of a Crack-Based Wireless Strain Sensor",
-        url: "/videos/video-crack-s2.mp4",
+        title: "Real-time SHM with Flexible Printed Sensors and IoT Circuits",
+        url: "/videos/video-s3.mp4",
         caption:
-          "Laboratory near-field probing of a crack-based wireless strain sensor with a vector network analyzer.",
+          "E-tattoo strain sensor integrated with a flexible wireless readout circuit for real-time structural health monitoring.",
       },
     ],
   },
-  {
+{
     slug: "event-driven-edge-ai-shm",
     title: "Event-Driven and Edge AI for Structural Health Monitoring",
     summary:
@@ -202,72 +216,7 @@ export const projects: Project[] = [
       },
     ],
   },
-  {
-    slug: "printable-e-tattoo-wireless-sensors",
-    title: "Printable and E-Tattoo Wireless Strain Sensors",
-    summary:
-      "Printable and transferable e-tattoo wireless strain sensors that couple piezoresistive electrodes with LC resonance for highly sensitive near-field interrogation on composite structures.",
-    overview: [
-      "This research develops a family of printable and e-tattoo wireless strain sensors for structural health monitoring of composite structures. The two formats share the same sensing idea—strain-dependent electrode resistance that reshapes the capacitive/RF response—while spanning routes from fully printed patches to ultra-thin transferable tattoos.",
-      "At the device level, interdigitated electrodes are modeled as a distributed RC network. Under low resistivity the AC signal spans the full electrode length; as strain raises electrode resistance, voltage attenuates along the fingers and the effective sensing length shrinks. That mechanism appears experimentally as a strong, frequency-dependent shift in effective capacitance and, in wireless LC tags, as a clear resonance-frequency shift under near-field readout—unlike control devices built with only conductive electrodes.",
-      "Building on this principle, fully printable sensors enable highly sensitive wireless near-field interrogation, while e-tattoo variants are fabricated as ultra-thin, transferable films that conform to textured and curved composite surfaces. Frequency-modulated printed capacitive sensing further improves sensitivity and linearity. The devices have been integrated with flexible wireless readout electronics for real-time SHM demonstrations, and the printable-sensor work received the Best Poster Award at LOPEC 2024.",
-    ],
-    tags: ["Printed electronics", "E-tattoo", "NFC/RF", "Strain"],
-    link: "https://doi.org/10.1002/advs.202411346",
-    image: "/images/projects/printable-e-tattoo-list.png",
-    hideHero: true,
-    figures: [
-      {
-        src: "/images/projects/printable-ide-mechanism.png",
-        caption:
-          "Interdigitated electrode capacitive sensing: lumped-element model and strain-dependent frequency response under low- and high-resistivity electrode conditions.",
-      },
-      {
-        src: "/images/projects/printable-wireless-lc-strain.png",
-        caption:
-          "Wireless LC strain sensor with piezoresistive IDE electrodes: near-field readout, resonance shift with strain, and comparison with conductive-electrode controls.",
-      },
-      {
-        src: "/images/projects/printable-e-tattoo-fabrication.png",
-        caption:
-          "Fabrication and transfer of ultra-thin e-tattoo sensors, with conformal integration on textured and curved composite surfaces.",
-      },
-    ],
-    relatedDois: [
-      "10.1002/advs.202411346",
-      "10.1109/FLEPS61194.2024.10604024",
-      "https://www.ndt.net/search/docs.php?id=33840",
-    ],
-    highlights: [
-      "Piezoresistive IDE electrodes that convert strain into a distributed RC / frequency-response change",
-      "Fully printable LC wireless strain sensors with sensitive near-field resonance readout",
-      "Ultra-thin e-tattoo formats transferable onto textured and curved composites",
-      "Frequency-modulated printed capacitive sensing for higher sensitivity and linearity",
-      "Flexible wireless readout demonstrated for real-time SHM",
-      "Best Poster Award, LOPEC 2024",
-    ],
-    awards: [
-      {
-        title: "Best Poster Award, LOPEC 2024",
-        image: "/images/news/lopec-2024.png",
-      },
-    ],
-    videos: [
-      {
-        title: "Fabrication and Transfer Process for E-Tattoo Sensors",
-        url: "/videos/video-s1.mp4",
-        caption:
-          "Fabrication and transfer process for e-tattoo wireless sensors.",
-      },
-      {
-        title: "Real-time SHM with Flexible Printed Sensors and IoT Circuits",
-        url: "/videos/video-s3.mp4",
-        caption:
-          "E-tattoo strain sensor integrated with a flexible wireless readout circuit for real-time structural health monitoring.",
-      },
-    ],
-  },
-  {
+{
     slug: "wireless-sensing-composite-pipelines",
     title: "Wireless Sensing for Composite Pipelines",
     summary:
@@ -326,7 +275,58 @@ export const projects: Project[] = [
     awards: [],
     videos: [],
   },
-  {
+{
+    slug: "wireless-crack-strain-sensors",
+    title: "Ultrasensitive Wireless Crack-Based Strain Sensors",
+    summary:
+      "Crack-based metallic-film and RFID sensing architectures for ultra-sensitive, passive wireless strain measurement in structural health monitoring and related applications.",
+    overview: [
+      "This research develops ultrasensitive wireless strain sensors that exploit controlled cracking and fragmentation in thin metallic films.",
+      "By tuning film fragmentation, small mechanical strains produce large changes in electrical response, enabling high-sensitivity readout through RFID and related radiofrequency architectures without onboard batteries.",
+      "These passive wireless sensors are suited to structural health monitoring of large infrastructure and composite structures, where dense, low-power sensing is needed across applications such as oil and gas assets, bridges, aerospace, and wind energy.",
+    ],
+    tags: ["RFID", "Crack sensors", "SHM", "Wireless"],
+    link: "https://doi.org/10.1002/advs.202301807",
+    image: "/images/projects/wireless-crack-strain-sensors.png",
+    imageFit: "contain",
+    figures: [
+      {
+        src: "/images/projects/crack-sensor-wireless.png",
+        caption:
+          "Wireless crack-based strain sensor architecture, sensing mechanism, and fabricated device.",
+      },
+      {
+        src: "/images/projects/crack-sensor-fragmentation.png",
+        caption:
+          "Metallic-film fragmentation design, strain response, and SEM characterization of Cr/Au crack patterns.",
+      },
+    ],
+    relatedDois: [
+      "10.1002/advs.202301807",
+      "10.1021/acsaelm.4c00819",
+    ],
+    highlights: [
+      "High-sensitivity RFID strain sensing for structural health monitoring",
+      "Optimization of metallic-film fragmentation for cracked-based strain sensors",
+      "Passive wireless readout suitable for large-area SHM applications",
+    ],
+    awards: [],
+    videos: [
+      {
+        title: "Portable VNA Readout of a Flexible Crack-Based RFID Coil",
+        url: "/videos/crack-s1.mp4",
+        caption:
+          "Handheld S11 measurement of a flexible crack-based RFID coil sensor using a portable vector network analyzer.",
+      },
+      {
+        title: "Near-Field Interrogation of a Crack-Based Wireless Strain Sensor",
+        url: "/videos/video-crack-s2.mp4",
+        caption:
+          "Laboratory near-field probing of a crack-based wireless strain sensor with a vector network analyzer.",
+      },
+    ],
+  },
+{
     slug: "lig-flexible-sensors",
     title: "Laser-Induced Graphene Flexible Sensors",
     summary:
@@ -368,8 +368,7 @@ export const projects: Project[] = [
     awards: [],
     videos: [],
   },
-
-  {
+{
     slug: "wearable-hmi-sensing",
     title: "Wearable and Human–Machine Interface Sensing",
     summary:
@@ -405,7 +404,7 @@ export const projects: Project[] = [
       },
     ],
   },
-  {
+{
     slug: "composite-joint-toughness",
     title: "Composite Joint Toughness Enhancement",
     summary:
@@ -453,7 +452,7 @@ export const projects: Project[] = [
     awards: [],
     videos: [],
   },
-];
+]
 
 export function getProjectBySlug(slug: string): Project | undefined {
   return projects.find((project) => project.slug === slug);
