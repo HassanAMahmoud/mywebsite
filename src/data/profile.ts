@@ -1,8 +1,6 @@
 export const profile = {
   name: "Hassan A. Mahmoud",
   title: "Postdoctoral Fellow · MCEM Lab, KAUST",
-  headline:
-    "Flexible and wireless sensing, event-driven edge AI for SHM, and geometry-driven mechanics for smart composite structures",
   affiliation:
     "Mechanics of Composites for Energy and Mobility (MCEM), King Abdullah University of Science and Technology",
   location: "Thuwal, Saudi Arabia",
@@ -31,7 +29,7 @@ export const profile = {
 
 My research spans ultrasensitive crack-based wireless strain sensors, printable and e-tattoo LC sensors for near-field interrogation, laser-induced graphene platforms for flexible temperature and strain sensing, and stretchable capacitive sensors for wearable human–machine interfaces. In parallel, I work on event-driven and edge-AI structural health monitoring—including semantic perception on Qualcomm platforms and hybrid ultra-low-power wake-up SHM nodes—and on geometry-driven strategies to enhance toughness in composite bonded joints.
 
-Across these themes, I combine hands-on fabrication with electromechanical characterization and system-level demonstration, from laboratory sensors to real-time wireless readout and competition demos. I also contribute to applied SHM efforts for composite and energy infrastructure, including work with the ENERCOMP consortium and Saudi Aramco.`,
+Across these themes, I combine hands-on fabrication with modeling and simulation, electromechanical characterization, and system-level demonstration—from laboratory sensors to real-time wireless readout and competition demos. I also contribute to applied SHM efforts for composite and energy infrastructure, including work with the ENERCOMP consortium and Saudi Aramco.`,
   education: [
     {
       school: "King Abdullah University of Science and Technology (KAUST)",
