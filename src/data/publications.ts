@@ -15,6 +15,17 @@ export const PUB_PLACEHOLDER = "/images/pub-placeholder.svg";
 
 export const journalPublications: Publication[] = [
   {
+    authors:
+      "H. A. Mahmoud, O. Khalifa, Y. Shi, A. Wagih, T. Y. Al-Naffouri, G. Lubineau",
+    title:
+      "Integrable E-Tattoo Wireless Sensors for In-Situ Health Monitoring of Composite Structures",
+    venue: "Sensors and Actuators A: Physical",
+    year: "2026",
+    doi: "https://doi.org/10.1016/j.sna.2026.118364",
+    status: "published",
+    image: "/images/pubs/e-tattoo-wireless-sna.jpg",
+  },
+  {
     authors: "N. Divakaran, Y. Kara, H. A. Mahmoud, E. Hill, G. Lubineau",
     title:
       "Frequency-Tunable Piezocapacitive PDMS/MWCNT Nanocomposite Stretchable Sensors for Sign Language Recognition",
@@ -170,15 +181,6 @@ export const underReview: Publication[] = [
       "M. S. Ibrahim, S. Ye, H. A. Mahmoud, H. B. Seresht, M. Y. Bayoumy, G. Lubineau, W. R. Wagner, Y. Chun",
     title:
       "A Novel Arterial Pulsation Driven In-Situ Surface Maintenance System Using Thin Piezoelectric Layer to Enhance Hemocompatibility in Endovascular Devices",
-    venue: "Under review",
-    year: "2025",
-    status: "under-review",
-  },
-  {
-    authors:
-      "H. A. Mahmoud, O. Khalifa, Y. Shi, A. Wagih, T. AlNaffouri, G. Lubineau",
-    title:
-      "Integrable E-Tattoo Wireless Sensors for In-Situ Health Monitoring of Composite Structures",
     venue: "Under review",
     year: "2025",
     status: "under-review",

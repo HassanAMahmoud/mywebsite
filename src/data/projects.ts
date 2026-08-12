@@ -100,7 +100,7 @@ export const projects: Project[] = [
     relatedDois: [
       "10.1002/advs.202411346",
       "10.1109/FLEPS61194.2024.10604024",
-      "https://www.ndt.net/search/docs.php?id=33840",
+      "10.1016/j.sna.2026.118364",
     ],
     highlights: [
       "Piezoresistive IDE electrodes that convert strain into a distributed RC / frequency-response change",
